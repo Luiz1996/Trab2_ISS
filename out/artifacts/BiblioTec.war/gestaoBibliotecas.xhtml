@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+
+    <title>BiblioTec - Gestão de Bibliotecas</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    #{loginController.usuario = ''}
+
+    <h1 align="center">BiblioTec</h1>
+
+    <p:menubar class="menubarBranco">
+        <p:menuitem class="botao anima" value="Acervo" url="consultarAcervo.xhtml"></p:menuitem>
+    </p:menubar>
+
+    <div class="clear15"></div>
+        <div class="container">
+                <div class="ui-grid">
+                    <div class="ui-grid-col-12">
+                        <div class="ui-grid-col-4">
+                            <div class="fundoPreto">
+                               <div class="fundoVerde">
+                                   <h2 class="letraBranca">Efetue Login <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h2>
+                               </div>
+                                <div class="loginInicial">
+                                    <h:form>
+                                        <p:inputText value="#{loginController.usuario}" type="text" class="form-control"
+                                                     placeholder="Username, CPF ou E-mail" maxlength="30"/>
+                                        <div class="clear5"></div>
+                                        <p:password value="#{loginController.senha}" class="form-control" maxlength="30" placeholder="Senha"/>
+
+                                        <div class="clear5"></div>
+                                        <h:commandButton value="Login" class="btn btn-block botaoLoguin"
+                                                         action="#{loginController.loginController}"></h:commandButton>
+                                        <div class="clear5"></div>
+
+                                        <h:commandButton value="Cadastrar-se" class="btn btn-block botaoLoguin"
+                                                             action="cadastroUsuario?faces-redirect=true" url="cadastroUsuario.xhtml"></h:commandButton>
+                                        <div class="clear5"></div>
+
+                                        <a class="letraBranca" href="redefinirSenha.xhtml" ><h4>Esqueci minha senha</h4></a>
+
+                                        <div class="letraVermelha">
+                                            <h:outputLabel value="#{loginController.login.msg_autenticacao}"/>
+                                            <h:outputLabel value="#{usuarioController.user.msg_autenticacao}"/>
+                                        </div>
+
+                                        #{loginController.login.msg_autenticacao = ''}
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Figura com Pixels, 740 por 415-->
+                        <div class="ui-grid-col-8">
+                               <p:carousel responsive="true" headerText="responsive" autoPlayInterval="5000"  rows="1" effect="easeInStrong" circular="true">
+                                   <p:graphicImage value="export/images/manchete1Teste.jpg"></p:graphicImage>
+                                   <p:graphicImage value="export/images/manchete2.jpg"></p:graphicImage>
+                                   <p:graphicImage value="export/images/manchete3.png"></p:graphicImage>
+                               </p:carousel>
+                       </div>
+                    </div>
+                </div>
+        </div>
+    <div class="clear10"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+        <div id="popup" class="popupGestao">
+            <p>Bem vindo a <b>Biblioteca X</b>!
+                <button class="fecharGestao" onclick="fechar()">x</button>
+                <b></b>
+                <p>
+                    Se você é um visitante, poderá clicar em Acervo para saber quais obras temos em nossa instituição.
+                </p>
+                <b></b>
+                <p>
+                    Agora, se você desejar ter acesso as funcionalidades especiais, preencha seu usuário/senha e clique em Login.
+                </p>
+                <b></b>
+                <p>
+                    Caso não tenha um cadastro, poderá fazê-lo clicando em Cadastrar-se.
+                </p>
+            </p>
+        </div>
+
+        <div>
+            #{usuarioController.user.msg_autenticacao = ''}
+            #{usuarioController.user.nome = ''}
+            #{usuarioController.user.usuario = ''}
+            #{usuarioController.user.senha = ''}
+            #{usuarioController.user.rg = ''}
+            #{usuarioController.user.cpf = ''}
+            #{usuarioController.user.email = ''}
+            #{usuarioController.user.endereco = ''}
+            #{usuarioController.user.cep = ''}
+            #{usuarioController.user.cidade = ''}
+            #{usuarioController.user.estado = ''}
+            #{usuarioController.user.datanasc = ''}
+        </div>
+</h:body>
+</html>

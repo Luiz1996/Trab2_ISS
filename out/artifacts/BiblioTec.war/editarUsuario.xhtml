@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Alterar Usuário | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesUsuario.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <h5>Nome do Usuário, Username, E-Mail ou CPF. <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                    <div class="ui-grid-col-8">
+                        <p:inputText value="#{usuarioController.user.busca}" class="form-control" required="false"
+                                     maxlength="100"
+                                     placeholder="Insira o nome do usuário, username, e-mail ou cpf"></p:inputText>
+                    </div>
+                    <div class="ui-grid-col-4 padding40">
+                        <h:commandButton value="Buscar" class="btn btn-block buttonAcervo"
+                                         action="#{usuarioController.realizaConsultaUsuario}"></h:commandButton>
+                    </div>
+                </h:form>
+                <div class="clear15"></div>
+                <div class="clear15"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-grid-col-12">
+        <h:form>
+            <p:dataTable id="tbl" class="tbl" var="usuario"
+                         value="#{usuarioController.realizaConsultaUsuario()}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                         paginator="true" rows="5"
+                         scrollWidth="2000">
+
+                <h:column headerClass="dataTableConfig">
+                <f:facet name="header">Relação de Usuários</f:facet>
+                </h:column>
+
+                <f:facet name="{Exporters}">
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24"
+                                            title="Exportar todas as páginas como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoUsuários"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="34"
+                                            title="Exportar todas as páginas como planiha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoUsuários"/>
+                        </h:commandLink>
+                    </div>
+
+                    <div style="float:right;">
+                        <span>Somente da Página Atual </span>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24" title="Exportar como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoUsuários" pageOnly="true"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="40" title="Exportar como planilha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoUsuários" pageOnly="true"/>
+                        </h:commandLink>
+                    </div>
+                </f:facet>
+
+                <p:column styleClass="dataTableConfig" headerText="Id">
+                    <h:outputText value="#{usuario.codusuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Nome">
+                    <h:outputText value="#{usuario.nome}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Usuário">
+                    <h:outputText value="#{usuario.usuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="E-mail">
+                    <h:outputText value="#{usuario.email}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="RG">
+                    <h:outputText value="#{usuario.rg}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="CPF">
+                    <h:outputText value="#{usuario.cpf}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Endereço">
+                    <h:outputText value="#{usuario.endereco}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="CEP">
+                    <h:outputText value="#{usuario.cep}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Cidade">
+                    <h:outputText value="#{usuario.cidade}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="UF">
+                    <h:outputText value="#{usuario.estado}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Cad.">
+                    <h:outputText value="#{usuario.datacad}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Alt.">
+                    <h:outputText value="#{usuario.dataalt}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Nasc.">
+                    <h:outputText value="#{usuario.datanasc}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Permissão">
+                    <h:outputText value="#{usuario.perfil}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Status">
+                    <h:outputText value="#{usuario.status}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+        <div class="clear15"></div>
+        <div class="ui-grid-col-3">
+            <h1></h1>
+        </div>
+        <div class="ui-grid-col-6">
+            <h:outputLabel value="Id do Usuário"/><font color="red">*</font>
+            <h:form id="IdUsuario">
+                <div class="ui-grid-col-7">
+                    <p:inputText id="codUsuario" onmouseover="validaCodUsuario(this.value)" value="#{usuarioController.user.codusuario}" class="form-control"
+                                 required="true" placeholder="Insira o Id do usuário"></p:inputText>
+                </div>
+                <div class="ui-grid-col-1"><h1></h1></div>
+                <div class="ui-grid-col-4">
+                    <h:commandButton value="Editar Usuário" class="btn btn-block buttonAcervo"
+                                     rendered="true" action="#{usuarioController.carregarDadosUsuario}"></h:commandButton>
+                </div>
+            </h:form>
+            <div class="clear15"></div>
+            <div class="clear15"></div>
+
+            <h:form id="Usuario">
+                <h:outputLabel value="Nome Completo"/><font color="red">*</font>
+                <p:inputText id="Nome" class="form-control" value="#{usuarioController.user.nome}" required="true"
+                             placeholder="Insira o seu nome completo" maxlength="60"/>
+                <div class="clear3"></div>
+                <h:outputLabel value="Username"/><font color="red">*</font>
+                <p:inputText id="Usuário" value="#{usuarioController.user.usuario}" class="form-control"
+                             required="true" placeholder="Insira o username de acesso"
+                             maxlength="30"></p:inputText>
+                <div class="clear3"></div>
+                <!--<h:outputLabel value="Senha"/><font color="red">*</font>
+                <p:inputText id="Senha" value="#{usuarioController.user.senha}" class="form-control"
+                             required="true" placeholder="Insira a senha de acesso"
+                             maxlength="30"></p:inputText>-->
+
+                <h:outputLabel value="RG"/><font color="red">*</font>
+                <p:inputMask id="RG" class="form-control" value="#{usuarioController.user.rg}" mask="99.999.999-9"
+                             required="true"
+                             placeholder="Insira o seu RG" maxlength="12"/>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="CPF"/><font color="red">*</font>
+                <p:inputMask id="Cpf" onchange="validaCpf(this.value)" class="form-control" value="#{usuarioController.user.cpf}" mask="999.999.999-99"
+                             required="true" placeholder="Insira o seu CPF" maxlength="14"/>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Endereço"/><font color="red">*</font>
+                <p:inputText id="Endereço" value="#{usuarioController.user.endereco}" class="form-control"
+                             required="true"
+                             placeholder="Insira os dados do seu endereço(ex: rua, bairro, número, etc...)"
+                             maxlength="100"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="CEP"/><font color="red">*</font>
+                <p:inputMask id="Cep" class="form-control" value="#{usuarioController.user.cep}" mask="99999-999"
+                             required="true"
+                             placeholder="Insira o CEP da sua rua" maxlength="8"/>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Cidade"/><font color="red">*</font>
+                <p:inputText id="Cidade" value="#{usuarioController.user.cidade}" class="form-control"
+                             required="true" placeholder="Insira a cidade onde mora"
+                             maxlength="60"></p:inputText>
+                <div class="clear3"></div>
+
+
+                <h:outputLabel for="uf" value="Estado"/><font color="red">*</font>
+                <div class="clear3"></div>
+                <p:selectOneMenu required="true" id="uf" onchange="validaEstado(this.value)" value="#{usuarioController.user.estado}" dynamic="true">
+                    <f:selectItem itemLabel="UF" itemValue="UF" noSelectionOption="true"/>
+                    <f:selectItems value="#{usuarioController.estados}"/>
+                </p:selectOneMenu>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="E-mail"/><font color="red">*</font>
+                <p:inputText id="Email"
+                             value="#{usuarioController.user.email}" class="form-control"
+                             required="true" placeholder="Insira seu endereço de e-mail"
+                             maxlength="100"
+                             onchange="validaEmail(this.value)"
+                />
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Data Nascimento"/><font color="red">*</font>
+                <p:inputMask id="Data_Nasc" class="form-control" value="#{usuarioController.user.datanasc}" mask="99/99/9999"
+                             required="true" placeholder="DD/MM/AAAA" maxlength="10"/>
+                <div class="clear3"></div>
+
+                <h:outputText value="Perfil de Usuário"/><font color="red">*</font>
+                <div align="left" class="form-group">
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                        <p:selectOneButton id="PerfilUsuário" value="#{usuarioController.user.permissao}" required="true">
+                            <f:selectItem itemLabel="Bibliotecário" itemValue='1'/>
+                            <f:selectItem itemLabel="Balconista" itemValue='2'/>
+                            <f:selectItem itemLabel="Aluno" itemValue='3'/>
+                            <f:selectItem itemLabel="Sem Permissão" itemValue='0'/>
+                        </p:selectOneButton>
+                    </h:panelGrid>
+                </div>
+                <div class="clear3"></div>
+
+                <h:outputText value="Status do Usuário"/><font color="red">*</font>
+                <div align="left" class="form-group">
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                        <p:selectOneButton id="StatusUsuário" value="#{usuarioController.user.ativo}" required="true">
+                            <f:selectItem itemLabel="Ativar" itemValue='1'/>
+                            <f:selectItem itemLabel="Inativar" itemValue='0'/>
+                        </p:selectOneButton>
+                    </h:panelGrid>
+                </div>
+                <div class="clear3"></div>
+
+                <div class="form-group">
+                    <p:growl id="msg"/>
+                    <div id="conf" class="conf">
+                        <p align="center">
+                            <h:outputLabel value="Deseja salvar as alterações?"/>
+                        </p>
+                        <h:form>
+                            <div class="form-group">
+                                <h:commandButton value="Sim" class="btn btn-block buttonAcervo"
+                                                 action="#{usuarioController.realizaEdicaoUsuario}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton value="Não" class="btn btn-block buttonAcervo"
+                                                 onclick="fecha()"></h:commandButton>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h:commandButton value="Salvar Alterações" class="btn btn-block buttonAcervo"
+                                     rendered="true" onclick="abri()"></h:commandButton>
+                </div>
+            </h:form>
+        </div>
+
+        <div class="ui-grid-col-3">
+            <h1></h1>
+        </div>
+    </div>
+
+
+    <div id="popup" class="popupEditarUsuario">
+        <p>Olá,
+            <button class="fecharEditarUsuario" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para alterar os dados do usuário, siga os seguintes passos:<br/>
+                1) Use o botão <b>Buscar</b> para filtrar os dados do usuário que deseja alterar.<br/>
+                2) <b>Preencha</b> apenas o que deseja alterar.<br/>
+                3) <b>Informe o Id e o Status</b> do usuário e clique em
+                <b> Alterar </b> para salvar as novas informações.
+            </p>
+        </p>
+    </div>
+    <div class="clear255"></div>
+    <div class="clear255"></div>
+    <div class="clear255"></div>
+    <div class="clear15"></div>
+    <div class="clear10"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

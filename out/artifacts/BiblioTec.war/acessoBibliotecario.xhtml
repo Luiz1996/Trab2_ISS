@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+
+    <title>Menu Bibliotecário | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <!-- MENSAGENS DE RETORNO <div align="left" class="retornos" id="retornos">
+        <b>
+            <font color="#{livroController.livro.color_msg_retorno}">
+                #{livroController.livro.msg_retorno}
+            </font>
+            <font color="#{usuarioController.user.color_msg}">
+                #{usuarioController.user.msg_autenticacao}
+            </font>
+        </b>
+    </div>-->
+
+    <!--Qualquer coisa usar Url nos menu Itens -->
+    <h1 align="center"> BiblioTec </h1>
+
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem styleClass="letraBranca" value="Sair" action="#{loginController.logoutSession}"/>
+
+                <p:submenu label="Controle de Livro">
+                    <p:menuitem value="Cadastrar" action="cadastrarLivro?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarLivro?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="alterarLivro?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarLivro?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimo" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+
+    <div class="clear15"></div>
+    <div align="center" class="ui-grid-col-12 mensagensRetorno">
+            <b>
+                <font color ="#{livroController.livro.color_msg_retorno}">
+                    #{livroController.livro.msg_retorno}
+                </font>
+                <font color ="#{usuarioController.user.color_msg}">
+                    #{usuarioController.user.msg_autenticacao}
+                </font>
+
+                <font color ="#{reservaController.reserva.colorMsgRetorno}">
+                    #{reservaController.reserva.msgRetorno}
+                </font>
+            </b>
+    </div>
+    <div class="clear221"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+    <!-- <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a> -->
+
+        <div id="popup" class="popupAcessoBibliotecario">
+            <p>
+                <button class="fecharAcessoBibliotecario" onclick="fechar()">x</button>
+                <b></b>
+                <p>
+                    Olá, notamos que você é um <b>Bibliotecário(a)</b>, então temos as sessões:
+                </p>
+                <b></b>
+                <p>
+                    <b>
+                        - Controle de Livros :
+                    </b>
+                    Onde você poderá cadastrae um novo livro, consultar os dados de um determinado livro, alterar as informações cadastrais do livro e até mesmo excluí-lo.
+                </p>
+                <b></b>
+                <p>
+                    <b>
+                        - Utilitários :
+                    </b>
+                    Nesta sessão você pode consultar os livros do acervo, e ter informações sobre os empréstimos em seu nome e até mesmo atualizar suas informações cadastrais.
+                </p>
+            </p>
+        </div>
+        <div class="resetValuesAcessoBibliotecario">
+            #{usuarioController.user.msg_autenticacao = ''}
+            #{usuarioController.user.nome = ''}
+            #{usuarioController.user.usuario = ''}
+            #{usuarioController.user.senha = ''}
+            #{usuarioController.user.rg = ''}
+            #{usuarioController.user.cpf = ''}
+            #{usuarioController.user.email = ''}
+            #{usuarioController.user.endereco = ''}
+            #{usuarioController.user.cep = ''}
+            #{usuarioController.user.cidade = ''}
+            #{usuarioController.user.estado = ''}
+            #{usuarioController.user.datanasc = ''}
+            #{livroController.livro.msg_retorno = ''}
+            #{livroController.livro.titulo = ''}
+            #{livroController.livro.cidade = ''}
+            #{livroController.livro.anolancamento = ''}
+            #{livroController.livro.volume = ''}
+            #{livroController.livro.codcatalogacao = ''}
+            #{livroController.livro.numchamada = ''}
+            #{livroController.livro.codlivro = 0}
+            #{livroController.livro.disponibilidade = -1}
+            #{livroController.livro.ativo = -1}
+            #{livroController.livro.busca = ''}
+            #{livroController.livro.autor = ''}
+            #{livroController.livro.editora = ''}
+            #{livroController.livro.codlivro = 0}
+            #{livroController.livro.titulo = ''}
+            #{livroController.livro.editora = ''}
+            #{livroController.livro.autor = ''}
+            #{reservaController.reserva.msgRetorno = ''}
+            #{reservaController.reserva.codLivro = 0}
+            #{reservaController.reserva.codReserva = 0}
+        </div>
+    </h:body>
+</html>

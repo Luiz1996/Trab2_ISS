@@ -1,0 +1,1308 @@
+/*gestaoBibliotecas e consultarAcervo */
+.popupGestao {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 240px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharGestao {
+    position: absolute;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #000000;
+}
+.popupConsultarAcervo {
+    position: fixed;
+    top: -100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 135px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharConsultarAcervo {
+    position: absolute;
+    top: -93px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.parteLogin {
+    position: absolute;
+    top: -30px;
+    bottom: 0;
+    left: -1077px;
+    right: 0px;
+    margin: auto;
+    width: 280px;
+    height: 380px;
+    border: darkgray 1px solid;
+    border-radius: 5px;
+    background: lightgray;
+    color: black;
+}
+
+.usuario {
+    position: absolute;
+    top: -230px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 250px;
+    height: 30px;
+}
+
+.senha {
+    position: absolute;
+    top: -90px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 250px;
+    height: 30px;
+}
+
+.redefSenha {
+    position: absolute;
+    top: 55px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 247px;
+    height: 30px;
+}
+
+.login {
+    position: absolute;
+    top: 120px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 247px;
+    height: 30px;
+}
+
+.cadastro {
+    position: absolute;
+    top: 205px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 247px;
+    height: 30px;
+}
+
+.retorno {
+    position: absolute;
+    top: 290px;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    border: 1px;
+    width: 250px;
+    height: 30px;
+    display: block;
+}
+
+.imagem {
+    position: absolute;
+    top: -380px;
+    bottom: 0;
+    left: 0px;
+    right: -1104px;
+    margin: auto;
+    border: 1px;
+    width: 250px;
+    height: 30px;
+}
+
+.botao{
+    color: #ffffff !important;
+    text-align: center !important;
+    padding: 14px 16px !important;
+    text-decoration: none !important;
+    transition: 0.4s !important;
+    font-size: 17px !important;
+    border-bottom: 0px solid #323f4c !important;
+}
+
+.menubarBranco{
+    background-color: #000000 !important;
+    padding: 0px;
+}
+.menubarBranco .ui-menu-list {
+    display: inline-block;
+}
+
+.menubarBranco.ui-menubar {
+    text-align: center;
+}
+
+.menubarBranco.ui-menubar a:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+.menubarBranco.ui-widget-content a{
+    color: #ffffff !important;
+}
+
+.menubarBranco.ui-menu, .ui-menu .ui-menu-child {
+    background: #000000 -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0))) !important;
+}
+
+.anima:hover:before {
+    background-color: #ffffff;
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.anima:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #0fbfc2;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.clear1{
+    padding: 1px;
+}
+.clear2{
+    padding: 2px;
+}
+.clear3{
+    padding: 3px;
+}
+.clear5{
+    padding: 5px;
+}
+.clear10{
+    padding: 10px;
+}
+.clear15{
+    padding: 15px;
+}
+.clear100{
+    padding: 100px;
+}
+.clear130{
+    padding: 130px;
+}
+.clear221{
+    padding: 221px;
+}
+.clear255{
+    padding: 255px;
+}
+
+
+.fundoPreto{
+    background: #292633;
+    text-align: center;
+}
+.fundoVerde{
+    background: #4CAF50;
+    text-align: center;
+    padding: 10px;
+}
+.loginInicial{
+    padding: 30px;
+}
+.loginInicial input[type="text"],.loginInicial input[type="password"]{
+    height: 50px;
+    background: #ffffff;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 3px solid #4CAF50;
+}
+
+.letraBranca{
+    color: #ffffff !important;
+}
+.letraVermelha{
+    color: #c0392b !important;
+}
+
+.fundoCinza{
+    background-color:  #ffffff;
+}
+
+.botaoLoguin{
+    color: #fff;
+    background-color: #34313f;
+    border-color: #4CAF50;
+}
+
+.botaoLoguin:hover{
+    color: #4CAF50;
+    border-color: #ffffff;
+}
+
+.fundoPretoCol{
+    background: #292633;
+    padding: 23px !important;
+    position: absolute !important;
+}
+
+.dataTableConfig{
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.buttonAcervo{
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+.padding40{
+    padding: 0px 0px 0px 40px;
+}
+
+.buttonAcervo:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+.imagemAcervo{
+    padding: 0px 0px 0px 0px;
+}
+/* AcessoBibliotecario */
+.fecharAcessoBibliotecario {
+    position: absolute;
+    top: -240px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.popupAcessoBibliotecario {
+    position: fixed;
+    top: 110px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 280px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.resetValuesAcessoBibliotecario{
+    display: none;
+}
+
+.pendencia:hover:before {
+    background-color: #c0392b;
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.pendencia:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #0fbfc2;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.ui-carousel .ui-carousel-header {
+    display: none !important;
+}
+
+/* Acesso Aluno */
+.popupAcessoAluno{
+    position: fixed;
+    top: 110px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 230px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharAcessoAluno {
+    position: absolute;
+    top: -190px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.resetValueAcessoAluno{
+    display: none;
+}
+
+/* Acesso Balconista */
+
+.popupAcessoBalconista {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 600px;
+    height: 350px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharAcessoBalconista {
+    position: absolute;
+    top: -300px;
+    bottom: 0;
+    left: 0;
+    right: -550px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.resetValueAcessoBalconista{
+    display: none;
+}
+
+.resetValueAcessoBalconista2{
+    display: none;
+}
+/* Consultar Acervo Aluno*/
+
+.popupAcervoAluno {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 135px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+.fecharAcervoAluno {
+    position: absolute;
+    top: -93px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+/* CADASTRAR RESERVA */
+
+.fechaCadastrarReserva {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+
+.popupCadastrarReserva {
+    position: fixed;
+    top: -160px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 150px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.ui-selectonemenu-trigger{
+    width: 24px !important;
+}
+
+/* CANCELAR RESERVA*/
+
+.popupCancelarReserva {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 150px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaCancelarReserva {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+.conf {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 170px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+/* MEUS DADOS */
+
+#table {
+    left: 5px;
+    width: 672px;
+    height: 970px;
+    border: solid 1pX darkgray;
+    display: none;
+}
+
+#novosDados {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    top: 103px;
+    right: 0px;
+    left: 0px;
+    width: 1343px;
+    height: 970px;
+    border: solid 1pX darkgray;
+    display: block;
+}
+
+.conf {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 200px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+/* CADASTRAR LIVRO */
+.popupCadastrarLivro {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: -50px;
+    margin: auto;
+    width: 500px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaCadastrarLivro {
+    position: absolute;
+    top: -120px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* Consultar Livro */
+
+.popupConsultarLivro {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 135px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaConsultarLivro {
+    position: absolute;
+    top: -95px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.tbl {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+.colunas {
+    -webkit-column-width: 1300px;
+    -moz-column-width: 1300px;
+    column-width: 1300px;
+    width: 1000px;
+}
+/* ALTERAR LIVRO*/
+.popupAlterarLivro {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 220px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharAlterarLivro {
+    position: absolute;
+    top: -175px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+
+/*DELETAR LIVRO*/
+
+.popupDeletarLivro {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+.fecharDeletarLivro {
+    position: absolute;
+    top: -120px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+
+/* CADASTRAR USUARIO BALCONISTA*/
+.popupCadastrarUsuario {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 150px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaCadastrarUsuario {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+.permissaoCadastrarUsuario{
+    display: none;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #000000;
+    background: #85b2cb linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    background: #000000 -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+    background: #85b2cb -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+
+}
+
+
+.ui-button .ui-button-text:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+/* CONSULTAR USUARIO BALCONISTA */
+.popupConsultaUsuario {
+    position: fixed;
+    top: -150px;
+    bottom: 0;
+    left: 0;
+    right: -50px;
+    margin: auto;
+    width: 500px;
+    height: 220px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaConsultaUsuario {
+    position: absolute;
+    top: -180px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* EDITAR USUARIO */
+
+.popupEditarUsuario {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 220px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharEditarUsuario {
+    position: absolute;
+    top: -175px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* DELETAR USUARIO BALCONISTA */
+
+.popupDeletarUsuario {
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 140px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaDeletarUsuario {
+    position: absolute;
+    top: -97px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* REDEFINIR SENHA BALCONISTA */
+
+#geral {
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 400px;
+    height: 410px;
+    padding: 0px;
+    border: solid 1pX black;
+    background-color: #fff;
+}
+
+.dadosPreenchidos {
+    top: 163px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 350px;
+    height: 500px;
+    padding: 0px;
+}
+
+.popupRedefinirSenhaBalconista {
+    position: fixed;
+    top: -100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 155px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharRedefinirSenhaBalconista {
+    position: absolute;
+    top: -116px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* CADASTRAR EMPRESTIMO*/
+
+.fechaCadastrarEmprestimo {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+
+.popupCadastrarEmprestimo {
+    position: fixed;
+    top: -160px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+/* CONSULTAR EMPRESTIMO */
+
+.popupConsultarEmprestimo {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaConsultarEmprestimo {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* ALTERAR EMPRESTIMO*/
+
+.popupAlterarEmprestimo {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaAlterarEmprestimo {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* DELETAR EMPRESTIMO */
+
+.popupDeletarEmprestimo {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 150px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaDeletarEmprestimo {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* CONSULTAR ACERVO BALCONISTA*/
+
+.popupConsultarAcervoBalconista {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 135px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharConsultarAcervoBalconista {
+    position: absolute;
+    top: -93px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+/* ACESSO RESTRITO */
+
+
+.div-principal {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 400px;
+    height: 150px;
+    border: solid 0.5px black;
+    border-radius: 5px;
+    display: block;
+}
+
+.geralAcessoRestrito {
+    background: #ffffff;
+}
+
+.btnAcessoRestrito {
+    position: absolute;
+    top: 45px;
+    bottom: -35px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 247px;
+    height: 40px;
+}
+
+/* REDEFINIR SENHA */
+
+#geralRedefinirSenha {
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 400px;
+    height: 370px;
+    padding: 0px;
+    border: solid 1pX black;
+}
+
+.dadosPreenchidosRedefinirSenha {
+    top: 235px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 350px;
+    height: 500px;
+    padding: 0px;
+
+}
+
+.popupRedefinirSenha {
+    position: fixed;
+    top: -100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 155px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fecharRedefinirSenha {
+    position: absolute;
+    top: -116px;
+    bottom: 0;
+    left: 0;
+    right: -460px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+
+
+/* CADASTRO USUARIO */
+
+.popupCadastroUsuario {
+    position: fixed;
+    top: -200px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 200px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+.fechaCadastroUsuario {
+    position: absolute;
+    top: -155px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: #ffffff;
+    color: blue;
+}
+
+body{
+    /*background-image: url(../export/images/backgroundFoto.png);*/
+    background: #c8d6e5 !important;
+}
+
+.mensagensRetorno{
+    border-color: #000000;
+}
+
+/* BAIXAR MULTASSSSSSSSSS */
+
+.fechaBaixarMultas {
+    position: absolute;
+    top: -105px;
+    bottom: 0;
+    left: 0;
+    right: -605px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: black 1px solid;
+    border-radius: 3px;
+    background: gray;
+    color: blue;
+}
+
+.popupBaixarMultas {
+    position: fixed;
+    top: -160px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    width: 650px;
+    height: 160px;
+    padding: 15px;
+    border: solid 1pX black;
+    background: white;
+    display: none;
+}
+
+/*RODAPÉ */
+
+*  {
+    margin:0;
+    padding:0;
+}
+
+html, body {height:100%;}
+
+.geral {
+    min-height:100%;
+    position:relative;
+    width:800px;
+}
+
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+.content {overflow:hidden;}
+.aside {width:200px;}
+.fleft {float:left;}
+.fright {float:right;}
+

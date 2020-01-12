@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Deletar Livro | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <h1 align="center"> BiblioTec </h1>
+
+    <h:form>
+        <p:menubar styleClass="menubarBranco">
+            <p:menuitem value="Menu Inicial" url="acessoBibliotecario.xhtml"></p:menuitem>
+            <p:submenu label="Controle de Livro">
+                <p:menuitem value="Cadastrar" action="cadastrarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Consultar" action="consultarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Alterar" action="alterarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Deletar" action="deletarLivro?faces-redirect=true"></p:menuitem>
+            </p:submenu>
+            <p:submenu label="Utilitários">
+                <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Meus Empréstimo" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+            </p:submenu>
+            <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+            <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+        </p:menubar>
+    </h:form>
+    <div class="clear15"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <h5>Escolha um Livro. <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                    <div class="ui-grid-col-8">
+                        <p:selectOneMenu filter="true" value="#{livroController.livro.codlivro}" filterMatchMode="contains"
+                                         required="true" style="width: 701px;">
+
+                            <f:selectItem noSelectionOption="true" itemLabel="Selecione um livro"/>
+                            <f:selectItems value="#{livroController.realizarConsultaLivroBibliotecarioSoAtivos()}" var="book"
+                                           itemLabel="Título: #{book.titulo} | Autor: #{book.autor} | Editora: #{book.editora} | Ano Lanç.: #{book.anolancamento} | Volume: #{book.volume} | Catalogação: #{book.codcatalogacao} | Num. Chamada: #{book.numchamada}"
+                                           itemValue="#{book.codlivro}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div id="conf" class="conf">
+                        <p align="center">
+                            <h:outputLabel value="Deseja deletar o livro selecionado?"/>
+                        </p>
+                        <h:form>
+                            <div class="form-group">
+                                <h:commandButton value="Sim" class="btn btn-block buttonAcervo"
+                                                 action="#{livroController.realizarDelecaoLivro()}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton value="Não" class="btn btn-block buttonAcervo"
+                                                 onclick="fecha()"></h:commandButton>
+                            </div>
+                        </h:form>
+                    </div>
+
+                    <div class="ui-grid-col-4">
+                        <h:commandButton value="Deletar Livro" class="btn btn-block buttonAcervo"
+                                         rendered="true" onclick="abri()"></h:commandButton>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <div id="popup" class="popupDeletarLivro">
+        <button class="fecharDeletarLivro" onclick="fechar()">x</button>
+        <p>Olá,
+            <b></b>
+            <p>
+                Utilize a opção <b> Buscar </b> para filtrar os dados do livro que deseja remover do sistema.
+            </p>
+            <b></b>
+            <p>
+                Em seguida, insira o código <b> ID </b> do livro e clique em <b>Deletar</b>.
+            </p>
+        </p>
+    </div>
+    <div class="clear100"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear1"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title> Cadastrar Empréstimo | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+
+                <div class="ui-grid-col-6">
+                    <h:form id="Empréstimo">
+                        <h5 class="text-center">Cadastro De Emprestimo <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                        <p:outputLabel value="Usuário"/><font color="red">*</font>
+                        <p:selectOneMenu filter="true" value="#{emprestimoController.emprestimo.codUsuario}" filterMatchMode="contains"
+                                         required="true" style="width:100%">
+
+                            <f:selectItem noSelectionOption="true" itemLabel="Selecione um usuário"/>
+                            <f:selectItems value="#{usuarioController.usuariosAtivos()}" var="user"
+                                           itemLabel="Nome: #{user.nome} | CPF: #{user.cpf} | E-Mail: #{user.email} | RG: #{user.rg} | Dt. Nasc.: #{user.datanasc}"
+                                           itemValue="#{user.codusuario}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Livros"/><font color="red">*</font>
+                        <p:selectOneMenu filter="true" value="#{emprestimoController.emprestimo.codLivro}" filterMatchMode="contains"
+                                         required="true" style="width:100%">
+                            <f:selectItem noSelectionOption="true" itemLabel="Selecione um livro"/>
+                            <f:selectItems value="#{livroController.livrosDisponiveis()}" var="book"
+                                           itemLabel="Título: #{book.titulo} | Autor: #{book.autor} | Editora: #{book.editora} | Ano Lanç.: #{book.anolancamento} - Cód. Catal: #{book.codcatalogacao}"
+                                           itemValue="#{book.codlivro}"/>
+                        </p:selectOneMenu>
+                        <div class="clear5"></div>
+                        <div class="form-group">
+                            <h:commandButton value="Cadastrar" class="btn btn-block buttonAcervo"
+                                             action="#{emprestimoController.cadastrarEmprestimo}"/>
+                        </div>
+                    </h:form>
+
+                </div>
+
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popupCadastrarEmprestimo">
+        <p>Olá,
+            <button class="fechaCadastrarEmprestimo" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para cadastrar um empréstimo em nosso sistema, siga os passos abaixo:<br/>
+                1º) Selecionar o usuário que receberá o livro.<br/>
+                2º) Selecionar o livro desejado.<br/>
+                3º) Clicar em <b>Cadastrar</b>.<br/>
+            </p>
+        </p>
+    </div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+</h:body>
+</html>

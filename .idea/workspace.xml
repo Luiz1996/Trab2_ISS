@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="BiblioTec" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d5d98b0c-abd1-4b3b-b3e9-b19c9358c343" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JUnit/br/uem/din/bibliotec/config/dao/ReservaDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/JS/validacoesUsuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/JS/validacoesUsuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/WEB-INF/classes/br/uem/din/bibliotec/config/controller/ReservaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/WEB-INF/classes/br/uem/din/bibliotec/config/controller/ReservaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/WEB-INF/classes/br/uem/din/bibliotec/config/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/WEB-INF/classes/br/uem/din/bibliotec/config/model/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/acessoBalconista.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/acessoBalconista.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/alterarEmprestimo.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/alterarEmprestimo.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/baixarMultas.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/baixarMultas.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/cadastrarUsuarioBalconista.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/cadastrarUsuarioBalconista.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/cadastroUsuario.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/cadastroUsuario.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/meusDados.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/meusDados.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/redefinirSenha.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BiblioTec.war/redefinirSenha.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/uem/din/bibliotec/config/controller/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/uem/din/bibliotec/config/controller/ReservaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/uem/din/bibliotec/config/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/uem/din/bibliotec/config/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/uem/din/bibliotec/config/controller/ReservaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/uem/din/bibliotec/config/controller/ReservaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/uem/din/bibliotec/config/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/uem/din/bibliotec/config/model/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/br/uem/din/bibliotec/config/dao/ReservaDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JS/validacoesUsuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/JS/validacoesUsuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/acessoBalconista.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/acessoBalconista.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/alterarEmprestimo.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/alterarEmprestimo.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/baixarMultas.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/baixarMultas.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/cadastrarUsuarioBalconista.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/cadastrarUsuarioBalconista.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/cadastroUsuario.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/cadastroUsuario.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/meusDados.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/meusDados.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/redefinirSenha.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/web/redefinirSenha.xhtml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="default/Hibernate" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTTP Request" />
+        <option value="jsf" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Luiz_91706" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Luiz Flávio Pereira &lt;luiz_flavio_p@hotmail.com&gt;" />
+        <option value="Luiz Flávio &lt;luiz_flavio_p@hotmail.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1P1euvOp3MHqYWFpudXzoCpdX61" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.30441177" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="br.uem.din.bibliotec.config.model" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.uem.din.bibliotec.config.dao" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.uem.din.bibliotec.config.filter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\web\CSS" />
+      <recent name="C:\Users\luiz.pereira\Documents\BiblioTec\web\CSS" />
+      <recent name="C:\Users\luiz.pereira\Documents\BiblioTec\web" />
+      <recent name="C:\Users\luiz.pereira\Documents\BiblioTec\web\WEB-INF" />
+      <recent name="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\web\JS" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\web" />
+      <recent name="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\src" />
+      <recent name="C:\Users\Luiz Flávio\IdeaProjects\BiblioTec\.idea" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JBoss 16.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 16.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8085/BiblioTec/gestaoBibliotecas.xhtml" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <deployment>
+        <artifact name="BiblioTec">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51375" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="BiblioTec" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d5d98b0c-abd1-4b3b-b3e9-b19c9358c343" name="Default Changelist" comment="" />
+      <created>1554910392323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554910392323</updated>
+      <workItem from="1554910394215" duration="641000" />
+      <workItem from="1554911064439" duration="2500000" />
+      <workItem from="1555156364847" duration="2628000" />
+      <workItem from="1555159075971" duration="30339000" />
+      <workItem from="1555275154860" duration="83788000" />
+      <workItem from="1555785593752" duration="8938000" />
+      <workItem from="1555794965310" duration="18690000" />
+      <workItem from="1555858253786" duration="11830000" />
+      <workItem from="1555872398652" duration="1498000" />
+      <workItem from="1555874259476" duration="1141000" />
+      <workItem from="1555875493507" duration="40000" />
+      <workItem from="1555945752553" duration="2975000" />
+      <workItem from="1555970112678" duration="1411000" />
+      <workItem from="1555971615084" duration="13866000" />
+      <workItem from="1556114846073" duration="6771000" />
+      <workItem from="1556125752474" duration="12069000" />
+      <workItem from="1556191940047" duration="15942000" />
+      <workItem from="1556216368778" duration="1747000" />
+      <workItem from="1556222590021" duration="89000" />
+      <workItem from="1556222731073" duration="3238000" />
+      <workItem from="1556279892935" duration="19479000" />
+      <workItem from="1556535802588" duration="289000" />
+      <workItem from="1556536140111" duration="856000" />
+      <workItem from="1556545348777" duration="1746000" />
+      <workItem from="1556633367599" duration="335000" />
+      <workItem from="1556641215000" duration="2921000" />
+      <workItem from="1556653387265" duration="81000" />
+      <workItem from="1556801988680" duration="2478000" />
+      <workItem from="1556816406218" duration="2914000" />
+      <workItem from="1557140038334" duration="381000" />
+      <workItem from="1557164798108" duration="148000" />
+      <workItem from="1557250761689" duration="5056000" />
+      <workItem from="1557256067222" duration="602000" />
+      <workItem from="1557316884383" duration="17000" />
+      <workItem from="1557319750783" duration="1190000" />
+      <workItem from="1557327774493" duration="7193000" />
+      <workItem from="1557399801298" duration="624000" />
+      <workItem from="1557400488908" duration="19292000" />
+      <workItem from="1557424554903" duration="8088000" />
+      <workItem from="1557438225166" duration="1771000" />
+      <workItem from="1557490324395" duration="147000" />
+      <workItem from="1557498112205" duration="13860000" />
+      <workItem from="1557513843187" duration="6817000" />
+      <workItem from="1557525377063" duration="2316000" />
+      <workItem from="1557528296775" duration="630000" />
+      <workItem from="1557529877084" duration="2809000" />
+      <workItem from="1557535060477" duration="7009000" />
+      <workItem from="1557601665017" duration="7585000" />
+      <workItem from="1557619551190" duration="1382000" />
+      <workItem from="1557671716046" duration="16418000" />
+      <workItem from="1557714521924" duration="4987000" />
+      <workItem from="1557746890699" duration="38844000" />
+      <workItem from="1557793956378" duration="1435000" />
+      <workItem from="1557833383984" duration="759000" />
+      <workItem from="1557843164926" duration="199000" />
+      <workItem from="1557940782824" duration="11722000" />
+      <workItem from="1558005636168" duration="10870000" />
+      <workItem from="1558034974303" duration="1060000" />
+      <workItem from="1558102687867" duration="2745000" />
+      <workItem from="1558116613990" duration="3798000" />
+      <workItem from="1558124645780" duration="1599000" />
+      <workItem from="1558206956263" duration="7168000" />
+      <workItem from="1558269579562" duration="3468000" />
+      <workItem from="1558273457927" duration="3756000" />
+      <workItem from="1558289240535" duration="2998000" />
+      <workItem from="1558292752508" duration="2527000" />
+      <workItem from="1558302520639" duration="4558000" />
+      <workItem from="1558353683084" duration="4563000" />
+      <workItem from="1558366746598" duration="282000" />
+      <workItem from="1558367107876" duration="645000" />
+      <workItem from="1558389497854" duration="291000" />
+      <workItem from="1558648933470" duration="612000" />
+      <workItem from="1558656367555" duration="924000" />
+      <workItem from="1558713668248" duration="1194000" />
+      <workItem from="1558969879267" duration="208000" />
+      <workItem from="1558970171340" duration="681000" />
+      <workItem from="1558970884480" duration="24000" />
+      <workItem from="1558970924511" duration="26000" />
+      <workItem from="1559267471203" duration="2430000" />
+      <workItem from="1559270029020" duration="554000" />
+      <workItem from="1559271543545" duration="246000" />
+      <workItem from="1559272009457" duration="2794000" />
+      <workItem from="1559321549350" duration="3072000" />
+      <workItem from="1559339582927" duration="17936000" />
+      <workItem from="1559396620113" duration="146000" />
+      <workItem from="1559397223787" duration="7689000" />
+      <workItem from="1559405825008" duration="367000" />
+      <workItem from="1559579138625" duration="4166000" />
+      <workItem from="1559653231412" duration="11049000" />
+      <workItem from="1559666959375" duration="742000" />
+      <workItem from="1559685365350" duration="1558000" />
+      <workItem from="1559687106740" duration="35000" />
+      <workItem from="1559687722894" duration="1308000" />
+      <workItem from="1559691596773" duration="1274000" />
+      <workItem from="1559771422158" duration="2433000" />
+      <workItem from="1559777892049" duration="8357000" />
+      <workItem from="1559822947010" duration="820000" />
+      <workItem from="1559824342035" duration="4704000" />
+      <workItem from="1559832268139" duration="363000" />
+      <workItem from="1559832798748" duration="15000" />
+      <workItem from="1559859928595" duration="927000" />
+      <workItem from="1559865091151" duration="5839000" />
+      <workItem from="1559911138489" duration="710000" />
+      <workItem from="1559921395130" duration="2699000" />
+      <workItem from="1559948125159" duration="2233000" />
+      <workItem from="1560014983144" duration="1196000" />
+      <workItem from="1560016216076" duration="2757000" />
+      <workItem from="1560123935776" duration="2591000" />
+      <workItem from="1560208479376" duration="1968000" />
+      <workItem from="1560271485387" duration="319000" />
+      <workItem from="1560272272121" duration="107000" />
+      <workItem from="1560272411270" duration="21000" />
+      <workItem from="1560424857181" duration="596000" />
+      <workItem from="1560434531688" duration="621000" />
+      <workItem from="1560511646273" duration="13817000" />
+      <workItem from="1560537027288" duration="593000" />
+      <workItem from="1560562817146" duration="519000" />
+      <workItem from="1560566548670" duration="1429000" />
+      <workItem from="1560602259066" duration="7537000" />
+      <workItem from="1560610720980" duration="336000" />
+      <workItem from="1560613144074" duration="3348000" />
+      <workItem from="1560635740373" duration="218000" />
+      <workItem from="1560693496806" duration="934000" />
+      <workItem from="1560811749879" duration="282000" />
+      <workItem from="1560813055909" duration="1618000" />
+      <workItem from="1561063048246" duration="2028000" />
+      <workItem from="1561157138042" duration="763000" />
+      <workItem from="1561157927650" duration="3587000" />
+      <workItem from="1561240451914" duration="655000" />
+      <workItem from="1561296610167" duration="597000" />
+      <workItem from="1561416464167" duration="5365000" />
+      <workItem from="1561561138879" duration="2172000" />
+      <workItem from="1561651165285" duration="8056000" />
+      <workItem from="1561660134461" duration="977000" />
+      <workItem from="1561672102997" duration="8749000" />
+      <workItem from="1561730847786" duration="14580000" />
+      <workItem from="1561766891367" duration="9291000" />
+      <workItem from="1561809517422" duration="15670000" />
+      <workItem from="1561853312291" duration="4659000" />
+      <workItem from="1561902060008" duration="5655000" />
+      <workItem from="1561984061300" duration="596000" />
+      <workItem from="1561989359759" duration="5782000" />
+      <workItem from="1562004699170" duration="624000" />
+      <workItem from="1562010187159" duration="4201000" />
+      <workItem from="1562017469136" duration="1895000" />
+      <workItem from="1562066633409" duration="932000" />
+      <workItem from="1562161858409" duration="2302000" />
+      <workItem from="1562172389492" duration="1722000" />
+      <workItem from="1562184457890" duration="27000" />
+      <workItem from="1562194123097" duration="2256000" />
+      <workItem from="1562238055284" duration="2481000" />
+      <workItem from="1562255463251" duration="210000" />
+      <workItem from="1562256087884" duration="1609000" />
+      <workItem from="1562326424030" duration="14239000" />
+      <workItem from="1562365703677" duration="174000" />
+      <workItem from="1562423021284" duration="2882000" />
+      <workItem from="1563102555310" duration="2258000" />
+      <workItem from="1563106410230" duration="598000" />
+      <workItem from="1563634478831" duration="1202000" />
+      <workItem from="1563720545580" duration="593000" />
+      <workItem from="1563740214748" duration="497000" />
+      <workItem from="1564928592909" duration="1252000" />
+      <workItem from="1565040394812" duration="640000" />
+      <workItem from="1565045307588" duration="214000" />
+      <workItem from="1565046262364" duration="162000" />
+      <workItem from="1565046442973" duration="98000" />
+      <workItem from="1565046665231" duration="215000" />
+      <workItem from="1565442492918" duration="598000" />
+      <workItem from="1565966205493" duration="612000" />
+      <workItem from="1566041913718" duration="1115000" />
+      <workItem from="1566425188221" duration="1036000" />
+      <workItem from="1566426870731" duration="3235000" />
+      <workItem from="1567634207273" duration="500000" />
+      <workItem from="1568111253397" duration="1034000" />
+      <workItem from="1568112726817" duration="835000" />
+      <workItem from="1568158428958" duration="9337000" />
+      <workItem from="1568415301702" duration="98000" />
+      <workItem from="1568417212885" duration="14210000" />
+      <workItem from="1568498431911" duration="705000" />
+      <workItem from="1568510474172" duration="84000" />
+      <workItem from="1568510637258" duration="48000" />
+      <workItem from="1568510799197" duration="202000" />
+      <workItem from="1568511041116" duration="522000" />
+      <workItem from="1568511880147" duration="252000" />
+      <workItem from="1568512148597" duration="20398000" />
+      <workItem from="1568685083122" duration="239000" />
+      <workItem from="1568760230776" duration="4779000" />
+      <workItem from="1568765116167" duration="153000" />
+      <workItem from="1568765306465" duration="232000" />
+      <workItem from="1568845129777" duration="10784000" />
+      <workItem from="1568921881922" duration="8065000" />
+      <workItem from="1568930132893" duration="346000" />
+      <workItem from="1568930592439" duration="10305000" />
+      <workItem from="1569068728840" duration="1165000" />
+      <workItem from="1569092109844" duration="2369000" />
+      <workItem from="1569094542519" duration="4227000" />
+      <workItem from="1569161608141" duration="1899000" />
+      <workItem from="1569165447383" duration="4208000" />
+      <workItem from="1569370644780" duration="630000" />
+      <workItem from="1569452867233" duration="11261000" />
+      <workItem from="1569889760627" duration="1387000" />
+      <workItem from="1570225651270" duration="462000" />
+      <workItem from="1570294064062" duration="6307000" />
+      <workItem from="1570376662607" duration="343000" />
+      <workItem from="1570377277606" duration="11573000" />
+      <workItem from="1570485475930" duration="4442000" />
+      <workItem from="1570744835986" duration="5191000" />
+      <workItem from="1570796216647" duration="3384000" />
+      <workItem from="1571095870693" duration="13525000" />
+      <workItem from="1571182620810" duration="395000" />
+      <workItem from="1571696514545" duration="9697000" />
+      <workItem from="1571707006476" duration="947000" />
+      <workItem from="1571707984554" duration="330000" />
+      <workItem from="1571743487876" duration="1444000" />
+      <workItem from="1571788183185" duration="890000" />
+      <workItem from="1571844645987" duration="600000" />
+      <workItem from="1571870135807" duration="76000" />
+      <workItem from="1571870682521" duration="4831000" />
+      <workItem from="1571876359648" duration="134000" />
+      <workItem from="1571878674440" duration="318000" />
+      <workItem from="1571951684969" duration="43000" />
+      <workItem from="1572043531684" duration="2152000" />
+      <workItem from="1572046009357" duration="2703000" />
+      <workItem from="1572124154447" duration="2939000" />
+      <workItem from="1572128174177" duration="122000" />
+      <workItem from="1572182128320" duration="1936000" />
+      <workItem from="1572308300895" duration="2866000" />
+      <workItem from="1572311869801" duration="73000" />
+      <workItem from="1572389981962" duration="575000" />
+      <workItem from="1572481792415" duration="2451000" />
+      <workItem from="1572990764310" duration="15000" />
+      <workItem from="1573170426224" duration="13000" />
+      <workItem from="1573419610582" duration="215000" />
+      <workItem from="1574381684616" duration="1377000" />
+      <workItem from="1574603409258" duration="3829000" />
+      <workItem from="1574613557672" duration="79000" />
+      <workItem from="1574719455438" duration="1126000" />
+      <workItem from="1574720974126" duration="2890000" />
+      <workItem from="1574978420432" duration="57000" />
+      <workItem from="1575720714401" duration="128000" />
+      <workItem from="1575722624663" duration="2007000" />
+      <workItem from="1575726929356" duration="1739000" />
+      <workItem from="1576280509503" duration="20000" />
+      <workItem from="1576280544849" duration="1170000" />
+      <workItem from="1576452587932" duration="20000" />
+      <workItem from="1576881949209" duration="317000" />
+      <workItem from="1577526196633" duration="428000" />
+      <workItem from="1577526909517" duration="2658000" />
+      <workItem from="1577536822536" duration="1030000" />
+      <workItem from="1577545117484" duration="16000" />
+      <workItem from="1577701927409" duration="1642000" />
+      <workItem from="1578860752222" duration="221000" />
+    </task>
+    <task id="LOCAL-00001" summary="Segundo commit:&#10;-CRUD 100%&#10;-Mensagens de Retorno OK&#10;-Botões de fechar o ajuda OK&#10;-Adicionado segunda verificação ao deletar e alterar os registros...">
+      <created>1555875240215</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555875240215</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Terceiro commit:&#10;-Adicionado demais arquivos que não vieram no segundo commit;">
+      <created>1555875386791</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555875386791</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Quarto commit:&#10;-Adicionado retorno de falha no login do usuário;&#10;-Corrigido posicionamento do div de ajuda do bibliotecário.">
+      <created>1555948706895</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555948706895</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Quinto commit:&#10;-Inserido placeholder nos campos de input text;&#10;-Realizado novas validações e tratativas de erros quanto ao fornecimento do id do livro por parte do usuário">
+      <created>1555976541550</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555976541550</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Sexto commit:&#10;-Correção na classe de conexão com banco de dados.">
+      <created>1555979384361</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555979384361</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Sétimo commit:&#10;-Subindo projeto completo, todos arquivos.">
+      <created>1556057759473</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1556057759473</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Sétimo commit:&#10;-Subindo projeto completo, todos arquivos.">
+      <created>1556057808977</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1556057808977</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Oitavo commit:&#10;-Realizado a criação de variáveis constantes contendo as cores das mensagens de retornos;&#10;-Todo backend foi comentado de modo a facilitar entendimento.">
+      <created>1556060220917</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556060220918</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dados do commit:&#10;-Realizado alterações na altenticação&#10;-Usuários estão conseguindo realizar cadastros&#10;-Melhoria nas mensagens de retornos">
+      <created>1556132218888</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1556132218888</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Dados do commit:&#10;-Iniciando desenvolvimento das telas e funcionalidades do Balconista">
+      <created>1556133796388</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556133796388</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Dados do commit:&#10;-Iniciando desenvolvimento das telas e funcionalidades do Balconista">
+      <created>1556133991792</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556133991792</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Dados commit:&#10;-Fazendo o cadastro de usuário através do acesso do balconista(incompleto)">
+      <created>1556139297213</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556139297213</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%">
+      <created>1556222969282</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556222969282</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section">
+      <created>1556225984143</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556225984143</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.">
+      <created>1556300827715</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556300827715</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início.">
+      <created>1556305241563</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1556305241563</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início, melhorei posicionamento da imagem de início.">
+      <created>1556306509452</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1556306509452</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início, melhorei posicionamento da imagem de início;&#10;-Adicionado a consulta de acervo do acessoAluno.xhtml.">
+      <created>1557255610329</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557255610329</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início, melhorei posicionamento da imagem de início;&#10;-Adicionado a consulta de acervo do acessoAluno.xhtml.">
+      <created>1557255765426</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1557255765426</updated>
+    </task>
+    <task id="LOCAL-00020" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1557794924099</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1557794924099</updated>
+    </task>
+    <task id="LOCAL-00021" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558035221182</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1558035221182</updated>
+    </task>
+    <task id="LOCAL-00022" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558035482580</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1558035482580</updated>
+    </task>
+    <task id="LOCAL-00023" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558126239959</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1558126239959</updated>
+    </task>
+    <task id="LOCAL-00024" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558214057119</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1558214057119</updated>
+    </task>
+    <task id="LOCAL-00025" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558272440655</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1558272440655</updated>
+    </task>
+    <task id="LOCAL-00026" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;-Realizado correção nos ManagendBeans(atributos private)&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558302633822</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1558302633822</updated>
+    </task>
+    <task id="LOCAL-00027" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;-Realizado correção nos ManagendBeans(atributos private).&#10;-Realizado correção no login, ao usar método doFilter não estava sendo possível acessar com CPF e E-mail.&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558358728902</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1558358728902</updated>
+    </task>
+    <task id="LOCAL-00028" summary="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;-Realizado correção nos ManagendBeans(atributos private).&#10;-Realizado correção no login, ao usar método doFilter não estava sendo possível acessar com CPF e E-mail.&#10;&#10;Trab PSS/PSW BiblioTec v1.0">
+      <created>1558367666307</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1558367666307</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Correção das funcionalidades envolvendo RESERVA.">
+      <created>1568510204128</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1568510204128</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Correção do commit anterior...">
+      <created>1568511484639</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1568511484639</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Iniciado a correção dos CRUD de empréstimos...">
+      <created>1568557582718</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1568557582718</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Realizei mais alterações no CRUD de empréstimos, foi criado novas funcionalidades e validações.">
+      <created>1568685213034</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1568685213034</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Adicionado as funcionalidades de COTAÇÃO, é muito importante na hora de calcular as multas durante a finalização de empréstimos.">
+      <created>1568765402113</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1568765402113</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Finalizado a parte de cotações, iniciado a parte de cauculo de multas durante devolução do livro.&#10;&#10;Foi necessário criar novas views, classes, filters...">
+      <created>1568930303570</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1568930303570</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Realizado correções no script da base de dados e também na formatação de valores numéricos (Double, Reais (multas)).">
+      <created>1569163477380</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1569163477380</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Realizado alguns ajustes/correções no frontend e css.">
+      <created>1569167668946</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1569167668946</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Adicionado emptyMessages em DataTable's.">
+      <created>1569279732057</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1569279732057</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Iniciando os trabalhos de testes com JUnit.">
+      <created>1574723514507</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1574723514508</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Iniciando os trabalhos de testes com JUnit.">
+      <created>1574723828607</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1574723828607</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dados commit:&#10;-Fazendo o cadastro de usuário através do acesso do balconista(incompleto)" />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%" />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section" />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente..." />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista." />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início." />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início, melhorei posicionamento da imagem de início." />
+    <MESSAGE value="Dados commit:&#10;-CRUD de usuários = OK&#10;-CRUD de livros   = OK&#10;&#10;-Funcionalidades do Bibliotecário = 100%&#10;-Funcionalidades do Balconista    = 50%&#10;&#10;-Melhoras nos botões de Ativar/Inativar livros;&#10;-Melhoras no posicionamento do section;&#10;-Adicionado as colunas datacad, dataalt, na tabela de livros;&#10;-Adicionado as colunas datacad, dataalt e datanasc na tabela de usuários;&#10;-Feito as alterações nas operações CRUD dos usuários/livros e modo a deixar salvos as datas corretamente...&#10;-Adicionado tela de consulta de acervo próprio pro balconista.&#10;-Refeito a tela de início, melhorei posicionamento da imagem de início;&#10;-Adicionado a consulta de acervo do acessoAluno.xhtml." />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;-Realizado correção nos ManagendBeans(atributos private)&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="CRUDS:&#10;-Livros      100%&#10;-Usuários    100%&#10;-Empréstimos 100%&#10;-Reservas    100%&#10;&#10;VALIDAÇÕES:&#10;-Acesso à páginas sem estar logado no sistema   100%&#10;-Acesso à páginas/funcionalidades sem permissão 100%&#10;&#10;SUPORTE:&#10;-Botões de Ajuda nas páginas                 100%&#10;-Pedir confirmação do usuário Delete/Updates 100%&#10;&#10;FRONT:&#10;-Criação de tabelas com paginação      100%&#10;-Exportar(PDF/Excel) dados das tableas 100%&#10;&#10;BACK:&#10;-Permissão para usuário Editar os próprios dados cadastrais                   100%&#10;-Separação consistente das operações pertinentes a cada tipo de permissão     100%&#10;-validações gerais, principalmente, no que diz respeito à Reserva/Empréstimos 100%&#10;&#10;E-MAIL&#10;-Envio de e-mail ao cadastrar empréstimo&#10;-Envio de e-mail ao finalização de empréstimo&#10;-Envio de e-mail ao editar reserva(devolução de livro antecipada)&#10;-Envio de e-mail ao cadastrar reserva&#10;-Envio de e-mail ao cancelar reserva&#10;-Envio de e-mail ao cadastrar usuário homepage/balconista&#10;-Envio de e-mail ao confirmar/ativar(pelo Balconista) cadastro de usuário&#10;&#10;-Realizado correção do referenciamento das imagens de íconbe/manchete.&#10;-Realizado correção nos ManagendBeans(atributos private).&#10;-Realizado correção no login, ao usar método doFilter não estava sendo possível acessar com CPF e E-mail.&#10;&#10;Trab PSS/PSW BiblioTec v1.0" />
+    <MESSAGE value="Correção das funcionalidades envolvendo RESERVA." />
+    <MESSAGE value="Correção do commit anterior..." />
+    <MESSAGE value="Iniciado a correção dos CRUD de empréstimos..." />
+    <MESSAGE value="Realizei mais alterações no CRUD de empréstimos, foi criado novas funcionalidades e validações." />
+    <MESSAGE value="Adicionado as funcionalidades de COTAÇÃO, é muito importante na hora de calcular as multas durante a finalização de empréstimos." />
+    <MESSAGE value="Finalizado a parte de cotações, iniciado a parte de cauculo de multas durante devolução do livro.&#10;&#10;Foi necessário criar novas views, classes, filters..." />
+    <MESSAGE value="Realizado correções no script da base de dados e também na formatação de valores numéricos (Double, Reais (multas))." />
+    <MESSAGE value="Realizado alguns ajustes/correções no frontend e css." />
+    <MESSAGE value="Adicionado emptyMessages em DataTable's." />
+    <MESSAGE value="Iniciando os trabalhos de testes com JUnit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Iniciando os trabalhos de testes com JUnit." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1577754405180">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="460" y="-649" key="FileChooserDialogImpl/0.0.1366.728/0.-768.1360.728@0.-768.1360.728" timestamp="1577545132663" />
+    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577754405180" />
+    <state width="905" height="143" key="GridCell.Tab.0.bottom" timestamp="1578860973575">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="901" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728/0.-768.1360.728@0.-768.1360.728" timestamp="1577529571586" />
+    <state width="905" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577754405404" />
+    <state width="905" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578860973575" />
+    <state width="905" height="143" key="GridCell.Tab.0.center" timestamp="1578860973575">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="901" height="2" key="GridCell.Tab.0.center/0.0.1366.728/0.-768.1360.728@0.-768.1360.728" timestamp="1577529571585" />
+    <state width="905" height="2" key="GridCell.Tab.0.center/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577754405404" />
+    <state width="905" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578860973575" />
+    <state width="905" height="143" key="GridCell.Tab.0.left" timestamp="1578860973575">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="901" height="2" key="GridCell.Tab.0.left/0.0.1366.728/0.-768.1360.728@0.-768.1360.728" timestamp="1577529571585" />
+    <state width="905" height="2" key="GridCell.Tab.0.left/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577754405404" />
+    <state width="905" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578860973575" />
+    <state width="905" height="143" key="GridCell.Tab.0.right" timestamp="1578860973575">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="901" height="2" key="GridCell.Tab.0.right/0.0.1366.728/0.-768.1360.728@0.-768.1360.728" timestamp="1577529571585" />
+    <state width="905" height="2" key="GridCell.Tab.0.right/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577754405404" />
+    <state width="905" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578860973575" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1577528095146">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/0.-768.1360.728@0.0.1366.728" timestamp="1577528095146" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

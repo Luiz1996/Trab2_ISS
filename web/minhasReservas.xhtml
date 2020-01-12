@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Minhas Reservas | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <h1 align="center"> BiblioTec </h1>
+
+    <h:form>
+        <p:menubar styleClass="menubarBranco">
+            <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial}"></p:menuitem>
+        </p:menubar>
+    </h:form>
+
+    <div class="clear15"></div>
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <p:dataTable styleClass="dataTableConfig" id="tbl" class="tbl" var="reserva"
+                                 value="#{reservaController.consultarReserva()}"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                 paginator="true" rows="5"
+                                 scrollWidth="1300"
+                                 emptyMessage="Nenhuma reserva encontrada.">
+
+
+
+                            <f:facet name="header">Relação de Reservas </f:facet>
+
+
+                        <f:facet name="{Exporters}">
+                            <div style="float:left;width: 32px;">
+                                <h:commandLink>
+                                    <p:graphicImage url="/export/images/pdf.png" width="24"
+                                                    title="Exportar todas as páginas como PDF"/>
+                                    <p:dataExporter type="pdf" target="tbl" fileName="MinhasReservas"/>
+                                </h:commandLink>
+                            </div>
+                            <div style="float:left;">
+                                <h:commandLink>
+                                    <p:graphicImage url="/export/images/xls.png" width="34"
+                                                    title="Exportar todas as páginas como planiha"/>
+                                    <p:dataExporter type="xls" target="tbl" fileName="MinhasReservas"/>
+                                </h:commandLink>
+                            </div>
+                        </f:facet>
+
+                        <p:column styleClass="dataTableConfig" headerText="Título">
+                            <h:outputText value="#{reserva.titulo}"/>
+                        </p:column>
+
+                        <p:column styleClass="dataTableConfig" headerText="Autor">
+                            <h:outputText value="#{reserva.autor}"/>
+                        </p:column>
+
+                        <p:column styleClass="dataTableConfig" headerText="Editora">
+                            <h:outputText value="#{reserva.editora}"/>
+                        </p:column>
+
+                        <p:column styleClass="dataTableConfig" headerText="Dt. Reserva" >
+                            <h:outputText value="#{reserva.dataCad}"/>
+                        </p:column>
+
+                        <p:column styleClass="dataTableConfig" headerText="Dt. Retirada" >
+                            <h:outputText value="#{reserva.dataRes}"/>
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <div class="clear130"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+</h:body>
+</html>

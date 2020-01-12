@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title> Cadastrar Empréstimo | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesUsuario.js"/>
+
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+                <div class="ui-grid-col-6">
+                   <h4>CPF do Usuário</h4>
+                    <h:form>
+                       <div class="ui-grid-col-7">
+
+                            <p:inputMask class="form-control"
+                                         value="#{multaController.multa.cpfUsuario}"
+                                         required="true" mask="999.999.999-99"
+                                         placeholder="Insira o CPF do usuário desejado"
+                                         maxlength="14"
+                                         onchange="validaCpf(this.value)"
+                                         id="Cpf"
+                            />
+                       </div>
+                        <div class="ui-grid-col-1">
+                            <h1></h1>
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <h:commandButton value="Consultar"
+                                         class="btn btn-block buttonAcervo"
+                                         action="baixarMultas?faces-redirect=true"
+                            />
+                        </div>
+                   </h:form>
+                </div>
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear15"></div>
+
+    <div class="ui-grid-col-12">
+        <h:form>
+            <p:dataTable id="tbl" class="tbl" var="multa"
+                         value="#{multaController.consultarMultasPorCpf()}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                         paginator="true" rows="5"
+                         scrollWidth="1300"
+                         emptyMessage="Nenhuma multa encontrada.">
+
+                <f:facet name="header">Relação de Multas</f:facet>
+
+                <f:facet name="{Exporters}">
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24"
+                                            title="Exportar todas as páginas como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoMultas"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="34"
+                                            title="Exportar todas as páginas como planiha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoMultas"/>
+                        </h:commandLink>
+                    </div>
+                </f:facet>
+
+                <p:column headerText="Id Multa">
+                    <h:outputText value="#{multa.codMulta}"/>
+                </p:column>
+
+                <p:column headerText="Usuário">
+                    <h:outputText value="#{multa.nomeUsuario}"/>
+                </p:column>
+
+                <p:column headerText="Livro">
+                    <h:outputText value="#{multa.tituloLivro}"/>
+                </p:column>
+
+                <p:column headerText="Autor">
+                    <h:outputText value="#{multa.autorLivro}"/>
+                </p:column>
+
+                <p:column headerText="Editora">
+                    <h:outputText value="#{multa.editoraLivro}"/>
+                </p:column>
+
+                <p:column headerText="Vlr. Cot.">
+                    <h:outputText value="R$ #{cotacaoController.formataDoubleCasasDecimais(multa.valorCotacao)}"/>
+                </p:column>
+
+                <p:column headerText="Dias Atraso">
+                    <h:outputText value="#{multa.diasAtraso}"/>
+                </p:column>
+
+                <p:column headerText="Vlr. Multa">
+                    <h:outputText value="R$ #{cotacaoController.formataDoubleCasasDecimais(multa.valor)}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+    </div>
+    <div class="clear5"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+                <div class="ui-grid-col-6">
+                    <h4 class="totMultas">
+                        <br/><h:outputLabel value="Saldo Devedor: R$ #{cotacaoController.formataDoubleCasasDecimais(multaController.multa.totMulta)}"/>
+                    </h4>
+                    <div class="clear3"></div>
+                    <h:outputLabel value="Id Multa"/><font color="red">*</font>
+                    <h:form id="Multas">
+                        <p:inputText class="form-control"
+                                     value="#{multaController.multa.idMultasSeparadosVirgula}"
+                                     required="true"
+                                     placeholder="Insira o Id Multa desejado"
+                                     maxlength="14"
+                                     style="width: 400px"
+                                     id="idMulta"
+                        />
+                        <br/>
+                        <div id="conf" class="conf">
+                            <p align="center">
+                                <h:outputLabel value="Deseja baixar as multas informadas?"/>
+                            </p>
+                            <h:form>
+                                <div class="form-group">
+                                    <h:commandButton value="Sim" class="btn btn-block buttonAcervo"
+                                                     action="#{multaController.baixarMultas}"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:commandButton value="Não" class="btn btn-block buttonAcervo"
+                                                     onclick="fecha()"></h:commandButton>
+                                </div>
+                            </h:form>
+                        </div>
+
+                        <div class="btnBaixar">
+                            <h:commandButton value="Baixar Multas"
+                                             class="btn btn-block buttonAcervo"
+                                             rendered="true"
+                                             onclick="abri()"
+                                             style="width: 400px"
+                            />
+                        </div>
+                    </h:form>
+
+                </div>
+                <div class="ui-grid-col-3">
+                    <h1></h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clear10"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+    <div id="popup" class="popupBaixarMultas">
+        <p>Olá,
+            <button class="fechaBaixarMultas" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para baixar multas, siga os paços abaixo:<br/>
+                1º) Informar CPF do usuário, e clicar em Consultar.<br/>
+                2º) No campo 'Id Multas', informar os Id's separados por vígurla (Ex: 1,6,9)<br/>
+                3º) Clicar em <b>Baixar Multas</b>.<br/>
+            </p>
+        </p>
+    </div>
+    #{multaController.multa.cpfUsuario = ''}
+</h:body>
+</html>

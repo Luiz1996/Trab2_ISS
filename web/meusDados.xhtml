@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Meus Dados | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesUsuario.js"/>
+
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+
+    <h:form>
+        <p:menubar styleClass="menubarBranco">
+            <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial}"></p:menuitem>
+        </p:menubar>
+    </h:form>
+    <div class="clear15"></div>
+
+    <div class="jumbotron" id="table">
+        <section alig="center" class="right">
+            <h:form id="meusDados">
+                <h5 align="center">Dados Atuais</h5>
+                <table class="order-table">
+                    <tbody>
+                    <ui:repeat var="dados" value="#{usuarioController.userDAO.meusDados()}" varStatus="status">
+                        <p:panelGrid rendered="#{status.first}">
+                            <tr>
+                                #{usuarioController.user.nome = dados.nome}
+                                #{usuarioController.user.usuario = dados.usuario}
+                                #{usuarioController.user.rg = dados.rg}
+                                #{usuarioController.user.cpf = dados.cpf}
+                                #{usuarioController.user.email = dados.email}
+                                #{usuarioController.user.endereco = dados.endereco}
+                                #{usuarioController.user.cep = dados.cep}
+                                #{usuarioController.user.cidade = dados.cidade}
+                                #{usuarioController.user.estado = dados.estado}
+                                #{usuarioController.user.datanasc = dados.datanasc}
+                                #{usuarioController.user.codusuario = dados.codusuario}
+                            </tr>
+                        </p:panelGrid>
+                    </ui:repeat>
+                    </tbody>
+                </table>
+            </h:form>
+        </section>
+    </div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <div class="ui-grid-col-3">
+                    <h5></h5>
+                </div>
+                <div class="ui-grid-col-6">
+                    <h:form id="Usuario">
+                        <h5 class="text-center">Dados Cadastrais</h5>
+                        <p:outputLabel style="width: 150px;border-color: #e74c3c;" value="Código: #{usuarioController.user.codusuario}" class="form-control"/>
+
+                        <h:outputLabel value="Nome"/><font color="red">*</font>
+                        <p:inputText maxlength="60" required="true" value="#{usuarioController.user.nome}" class="form-control" placeholder="Insira seu nome"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="Usuário"/><font color="red">*</font>
+                        <p:inputText maxlength="30" required="true" value="#{usuarioController.user.usuario}" class="form-control" placeholder="Insira seu username de acesso"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="Senha"/><font color="red">*</font>
+                        <p:password maxlength="30" required="true" value="#{usuarioController.user.senha}" class="form-control" placeholder="Insira uma nova senha"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="RG"/><font color="red">*</font>
+                        <p:inputMask class="form-control" required="true" value="#{usuarioController.user.rg}" mask="99.999.999-9" placeholder="Insira o seu RG" maxlength="12"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="CPF"/><font color="red">*</font>
+                        <p:inputMask id="Cpf" required="true" onchange="validaCpf(this.value)" class="form-control" value="#{usuarioController.user.cpf}" mask="999.999.999-99" placeholder="Insira o seu CPF" maxlength="14"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="E-mail"/><font color="red">*</font>
+                        <p:inputText id="Email" required="true" maxlength="100" onchange="validaEmail(this.value)" value="#{usuarioController.user.email}" class="form-control" placeholder="Insira seu e-mail"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="Endereço"/><font color="red">*</font>
+                        <p:inputText maxlength="100" required="true" value="#{usuarioController.user.endereco}" class="form-control" placeholder="Insira seu endereço"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="CEP"/><font color="red">*</font>
+                        <p:inputMask class="form-control" required="true" value="#{usuarioController.user.cep}" mask="99999-999" placeholder="Insira o CEP da sua rua" maxlength="8"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel value="Cidade"/><font color="red">*</font>
+                        <p:inputText maxlength="60" required="true" value="#{usuarioController.user.cidade}" class="form-control" placeholder="Insira sua cidade"/>
+                        <div class="clear3"></div>
+                        <h:outputLabel for="uf" value="Estado"/><font color="red">*</font>
+                        <div class="clear1"></div>
+                        <p:selectOneMenu id="uf" onchange="validaEstado(this.value)" value="#{usuarioController.user.estado}" dynamic="true" required="true">
+                            <f:selectItem itemLabel="UF" itemValue="UF" noSelectionOption="true"/>
+                            <f:selectItems value="#{usuarioController.estados}"/>
+                        </p:selectOneMenu>
+
+                        <br/><h:outputLabel value="Data de Nascimento"/><font color="red">*</font>
+                        <p:inputMask maxlength="10" required="true" id="Data" onchange="validaData(this.value)" class="form-control" value="#{usuarioController.user.datanasc}" mask="99/99/9999" placeholder="DD/MM/AAAA"/>
+
+                        <div id="conf" class="conf">
+                            <p align="center">
+                                <h:outputLabel value="Deseja salvar as alterações?"/>
+                                <br/>
+                                <font color="red">
+                                    <h:outputLabel value="Sua sessão será encerrada."/>
+                                </font>
+                            </p>
+                            <h:form>
+                                <div class="form-group">
+                                    <h:commandButton value="Sim" class="btn btn-block buttonAcervo"
+                                                     action="#{usuarioController.realizaAtualizacaoMeusDados}"/>
+                                </div>
+                                <div class="form-group">
+                                    <h:commandButton value="Não" class="btn btn-block buttonAcervo"
+                                                     onclick="fecha()"></h:commandButton>
+                                </div>
+                            </h:form>
+                        </div>
+                        <div class="clear5"></div>
+
+                        <div class="form-group">
+                            <h:commandButton value="Salvar Alterações" class="btn btn-block buttonAcervo" onclick="abri()"/>
+                        </div>
+
+                    </h:form>
+                </div>
+                <div class="ui-grid-col-3">
+                    <h5></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    #{usuarioController.user.msg_autenticacao = ''}
+
+    <div class="clear5"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

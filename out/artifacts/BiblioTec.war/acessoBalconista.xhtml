@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Menu Balconista | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+
+    <div class="reset">
+        #{cotacaoController.cotacao.valor = ''}
+    </div>
+
+    <div class="resetValueAcessoBalconista2">
+        #{cotacaoController.cotacao.valor = 0}
+    </div>
+
+    <!-- menu principal -->
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Sair" action="#{loginController.logoutSession}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <!-- menu principal -->
+
+    <div class="clear1"></div>
+    <marquee class="letraVermelha"><p:outputLabel value="A cotação em vigor é de R$#{cotacaoController.consultarCotacao()} por dia de atraso."/></marquee>
+    <div class="clear1"></div>
+    <div  align="center" class="ui-grid-col-12 mensagensRetorno">
+            <b>
+                <font color ="#{livroController.livro.color_msg_retorno}">
+                    #{livroController.livro.msg_retorno}
+                </font>
+                <font color ="#{usuarioController.user.color_msg}">
+                    #{usuarioController.user.msg_autenticacao}
+                </font>
+
+                <font color ="#{reservaController.reserva.colorMsgRetorno}">
+                    #{reservaController.reserva.msgRetorno}
+                </font>
+
+                <font color ="#{emprestimoController.emprestimo.colorMsgRetorno}">
+                    #{emprestimoController.emprestimo.msgRetorno}
+                </font>
+
+                <font color ="#{cotacaoController.cotacao.colorMsgRetorno}">
+                    #{cotacaoController.cotacao.msgRetorno}
+                </font>
+
+                <font color ="#{multaController.multa.colorMsgRetorno}">
+                    #{multaController.multa.msgRetorno}
+                </font>
+            </b>
+    </div>
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <div class="ui-grid-col-3">
+                        <h1></h1>
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <h4 align="center">Cotação Diária de Multa</h4>
+                        <div class="ui-grid-col-6">
+                            <p:inputMask class="form-control" value="#{cotacaoController.cotacao.valor}" mask="99.99" required="true" placeholder="Digite o valor da cotação" maxlength="5"/><br/>
+                        </div>
+                        <div class="ui-grid-col-2">
+                            <h1></h1>
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <h:commandButton value="Salvar Cotação" class="btn btn-block buttonAcervo"
+                                             action="#{cotacaoController.cadastrarCotacao()}"/>
+                        </div>
+                    </div>
+                    <div class="ui-grid-col-3">
+                        <h1></h1>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="popup" class="popupAcessoBalconista">
+        <p>
+            <button class="fecharAcessoBalconista" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Olá, notamos que você é um <b>Balconista</b>, então temos as sessões:
+            </p>
+            <b></b>
+            <p>
+                <b>
+                    - Controle de Usuários :
+                </b>
+                Onde você poderá cadastrar um novo usuários, consultar os dados de um determinado usuário, alterar as informações cadastrais do usuário e até mesmo excluí-lo.
+            </p>
+            <b></b>
+            <p>
+                <b>
+                    - Controle de Empréstimos :
+                </b>
+                Onde você poderá cadastrar um empréstimo, consultar dos dados de um determinado empréstimo, alterar as informações do empréstimo desejado e até mesmo marcar o empréstimo como finalizado.
+            </p>
+            <b></b>
+            <p>
+                <b>
+                    - Utilitários :
+                </b>
+                Nesta sessão você pode consultar os livros do acervo, e ter informações sobre os empréstimos em seu nome e até mesmo atualizar suas informações cadastrais.
+            </p>
+        </p>
+    </div>
+
+        <div class="resetValueAcessoBalconista">
+            #{usuarioController.user.msg_autenticacao = ''}
+            #{usuarioController.user.color_msg = ''}
+            #{emprestimoController.emprestimo.msgRetorno = ''}
+            #{emprestimoController.emprestimo.colorMsgRetorno = ''}
+            #{emprestimoController.emprestimo.codUsuario = ''}
+            #{emprestimoController.emprestimo.codEmprestimo = -1}
+            #{usuarioController.user.nome = ''}
+            #{usuarioController.user.usuario = ''}
+            #{usuarioController.user.senha = ''}
+            #{usuarioController.user.rg = ''}
+            #{usuarioController.user.cpf = ''}
+            #{usuarioController.user.email = ''}
+            #{usuarioController.user.endereco = ''}
+            #{usuarioController.user.cep = ''}
+            #{usuarioController.user.cidade = ''}
+            #{usuarioController.user.estado = ''}
+            #{usuarioController.user.datanasc = ''}
+            #{usuarioController.user.permissao = ''}
+            #{usuarioController.user.ativo = -1}
+            #{usuarioController.user.codusuario = ''}
+            #{livroController.livro.msg_retorno = ''}
+            #{livroController.livro.codlivro = -1}
+            #{livroController.livro.titulo = ''}
+            #{emprestimoController.emprestimo.codLivro = -1}
+            #{emprestimoController.emprestimo.dataDev = ''}
+            #{emprestimoController.emprestimo.nomeUsuario = ''}
+            #{usuarioController.user.jaativado = 0}
+            #{usuarioController.user.busca = ''}
+            #{reservaController.reserva.msgRetorno = ''}
+            #{reservaController.reserva.codLivro = 0}
+            #{reservaController.reserva.codReserva = 0}
+            #{reservaController.reserva.autor = ''}
+            #{reservaController.reserva.editora = ''}
+            #{reservaController.reserva.titulo = ''}
+            #{reservaController.reserva.dataCad = ''}
+            #{reservaController.reserva.dataRes = ''}
+            #{cotacaoController.cotacao.msgRetorno = ''}
+            #{cotacaoController.cotacao.valor = ''}
+            #{multaController.multa.idMultasSeparadosVirgula = ''}
+            #{multaController.multa.cpfUsuario = ''}
+            #{multaController.multa.colorMsgRetorno = ''}
+            #{multaController.multa.msgRetorno = ''}
+            #{multaController.multa.totMulta = ''}
+            #{livroController.livro.codlivro = 0}
+            #{livroController.livro.titulo = ''}
+            #{livroController.livro.editora = ''}
+            #{livroController.livro.autor = ''}
+            #{reservaController.reserva.msgRetorno = ''}
+            #{reservaController.reserva.codLivro = 0}
+        </div>
+    <div class="clear100"></div>
+    <div class="clear15"></div>
+    <div class="clear15"></div>
+    <div class="clear10"></div>
+    <div class="clear3"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+        <div class="clear5"></div>
+        <div class="clear1"></div>
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title> Consultar Empréstimo | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <h1 align="center"> BiblioTec </h1>
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <h5>Nome do Usuário, Username, E-Mail ou CPF.<a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                    <div class="ui-grid-col-8">
+                        <p:inputText value="#{emprestimoController.emprestimo.nomeUsuario}" class="form-control" required="false"
+                                     maxlength="60"
+                                     placeholder="Insira o nome do usuário ou o título do livro"></p:inputText>
+                    </div>
+                    <div class="ui-grid-col-4 padding40">
+                        <h:commandButton value="Buscar" class="btn btn-block buttonAcervo"
+                                         action="#{emprestimoController.consultaEmprestimos}"></h:commandButton>
+                    </div>
+                </h:form>
+                <div class="clear15"></div>
+                <div class="clear15"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui-grid-col-12">
+        <h:form>
+            <p:dataTable id="tbl" class="tbl" var="emp"
+                         value="#{emprestimoController.consultaEmprestimos()}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                         paginator="true" rows="5"
+                         scrollWidth="1300"
+                         emptyMessage="Nenhum empréstimo encontrado.">
+
+                <h:column headerClass="dataTableConfig">
+                <f:facet name="header">Relação de Empréstimos</f:facet>
+                </h:column>
+
+
+                <f:facet name="{Exporters}">
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24"
+                                            title="Exportar todas as páginas como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoEmpréstimos"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:left;padding-top: 5px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="34"
+                                            title="Exportar todas as páginas como planiha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoEmpréstimos"/>
+                        </h:commandLink>
+                    </div>
+
+                    <div style="float:right;">
+                    <span>Somente da Página Atual </span>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24" title="Exportar como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoEmpréstimos" pageOnly="true"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="40" title="Exportar como planilha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoEmpréstimos" pageOnly="true"/>
+                        </h:commandLink>
+                    </div>
+                </f:facet>
+
+                <p:column styleClass="dataTableConfig" headerText="Id Emp." width="70">
+                    <h:outputText value="#{emp.codEmprestimo}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Nome" width="170">
+                    <h:outputText value="#{emp.nomeUsuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="E-mail" width="220">
+                    <h:outputText value="#{emp.emailUsuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Título" width="120">
+                    <h:outputText value="#{emp.tituloLivro}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Autor">
+                    <h:outputText value="#{emp.autorLivro}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Editora">
+                    <h:outputText value="#{emp.editoraLivro}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Ano Lanç." width="70">
+                    <h:outputText value="#{emp.anolancamentoLivro}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Emp.">
+                    <h:outputText value="#{emp.dataEmp}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Dev.">
+                    <h:outputText value="#{emp.dataDev}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Entr.">
+                    <h:outputText value="#{emp.dataEntrega}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Alt.">
+                    <h:outputText value="#{emp.dataAlt}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Status">
+                    <h:outputText value="#{emp.statusEmprestimo}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+
+    </div>
+
+    <div id="popup" class="popupConsultarEmprestimo">
+        <p>Olá,
+            <button class="fechaConsultarEmprestimo" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para Consultar os empréstimos do sistema, siga os passos abaixo:<br/>
+                1º) Forneça o nome do usuário ou título do livro.<br/>
+                2º) Clique em <b>Consultar</b>.<br/>
+                <font color="red">
+                    Obs: Caso não filtre por nome ou título, todos os empréstimos serão listados.
+                </font>
+            </p>
+        </p>
+    </div>
+    <div class="clear221"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+</h:body>
+</html>

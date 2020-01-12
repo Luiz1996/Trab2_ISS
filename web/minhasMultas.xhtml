@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title> Cadastrar Empréstimo | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesUsuario.js"/>
+
+
+</h:head>
+<h:body styleClass="fundoCinza">
+    <h1 align="center"> BiblioTec </h1>
+
+
+    <h:form>
+        <p:menubar styleClass="menubarBranco">
+            <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"></p:menuitem>
+        </p:menubar>
+    </h:form>
+    <div class="clear15"></div>
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <p:dataTable id="tbl" class="tbl" var="multa"
+                                 value="#{multaController.consultarMinhasMultas()}"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                 paginator="true" rows="5"
+                                 scrollWidth="1300"
+                                 emptyMessage="Nenhuma multa encontrada.">
+
+                        <f:facet name="header">Relação de Multas</f:facet>
+
+                        <f:facet name="{Exporters}">
+                            <div style="float:left;padding-top: 5px;">
+                                <h:commandLink>
+                                    <p:graphicImage url="/export/images/pdf.png" width="24"
+                                                    title="Exportar todas as páginas como PDF"/>
+                                    <p:dataExporter type="pdf" target="tbl" fileName="relaçãoMultas"/>
+                                </h:commandLink>
+                            </div>
+                            <div style="float:left;padding-top: 5px;">
+                                <h:commandLink>
+                                    <p:graphicImage url="/export/images/xls.png" width="34"
+                                                    title="Exportar todas as páginas como planiha"/>
+                                    <p:dataExporter type="xls" target="tbl" fileName="relaçãoMultas"/>
+                                </h:commandLink>
+                            </div>
+                        </f:facet>
+
+                        <p:column headerText="Id Multa">
+                            <h:outputText value="#{multa.codMulta}"/>
+                        </p:column>
+
+                        <p:column headerText="Usuário">
+                            <h:outputText value="#{multa.nomeUsuario}"/>
+                        </p:column>
+
+                        <p:column headerText="Livro">
+                            <h:outputText value="#{multa.tituloLivro}"/>
+                        </p:column>
+
+                        <p:column headerText="Autor">
+                            <h:outputText value="#{multa.autorLivro}"/>
+                        </p:column>
+
+                        <p:column headerText="Editora">
+                            <h:outputText value="#{multa.editoraLivro}"/>
+                        </p:column>
+
+                        <p:column headerText="Vlr. Cot.">
+                            <h:outputText value="R$ #{cotacaoController.formataDoubleCasasDecimais(multa.valorCotacao)}"/>
+                        </p:column>
+
+                        <p:column headerText="Dias Atraso">
+                            <h:outputText value="#{multa.diasAtraso}"/>
+                        </p:column>
+
+                        <p:column headerText="Vlr. Multa">
+                            <h:outputText value="R$ #{multa.valor}"/>
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <div class="clear100"></div>
+    <div class="clear15"></div>
+    <div class="clear10"></div>
+    <div class="clear1"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

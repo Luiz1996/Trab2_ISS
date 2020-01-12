@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+    <title>Redefinir Senha | BiblioTec</title>
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesUsuario.js"/>
+
+</h:head>
+#{usuarioController.user.senha = ''}
+#{usuarioController.user.datanasc = ''}
+#{usuarioController.user.cpf = ''}
+#{usuarioController.user.email = ''}
+<h:body>
+    <h1 align="center"> BiblioTec </h1>
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+    <div class="jumbotron" id="geral">
+        <section class="row">
+            <div class="dadosPreenchidos">
+                <h:form>
+                    <h5 align="center">Redefinir Senha</h5><br></br>
+                    <div class="email" id="email">
+                        <h:outputLabel value="E-mail"/><font color="red">*</font><br></br>
+                        <p:inputText id="Email"
+                                     value="#{usuarioController.user.email}"
+                                     class="form-control"
+                                     placeholder="Insira seu e-mail"
+                                     onchange="validaEmail(this.value)"
+                                     maxlength="100"
+                                     required="true"/>
+                    </div>
+                    <div class="cpf" id="cpf">
+                        <h:outputLabel value="CPF"/><font color="red">*</font><br></br>
+                        <p:inputMask class="form-control"
+                                     value="#{usuarioController.user.cpf}"
+                                     mask="999.999.999-99"
+                                     required="true"
+                                     placeholder="Insira o seu CPF"
+                                     maxlength="14"
+                                     id="Cpf"
+                                     onchange="validaCpf(this.value)"/>
+                    </div>
+                    <div class="dtNasc" id="dtNasc">
+                        <h:outputLabel value="Data de Nascimento"/><font color="red">*</font>
+                        <p:inputMask class="form-control"
+                                     value="#{usuarioController.user.datanasc}"
+                                     mask="99/99/9999"
+                                     required="true"
+                                     placeholder="DD/MM/AAAA"
+                                     maxlength="10"/>
+                    </div>
+                    <div class="dtNasc" id="Senha">
+                        <h:outputLabel value="Senha"/><font color="red">*</font>
+                        <p:password class="form-control"
+                                     value="#{usuarioController.user.senha}"
+                                     required="true"
+                                     placeholder="Insira a nova senha do usuário"
+                                     maxlength="30"/>
+                    </div>
+                    <br/>
+
+
+                        <h:commandButton value="Redefinir Senha"
+                                         class="btn btn-block btn-primary buttonAcervo"
+                                         action="#{usuarioController.realizaRedefinirSenha}"/>
+
+                </h:form>
+            </div>
+        </section>
+    </div>
+    <div id="popup" class="popupRedefinirSenhaBalconista">
+        <p>Olá,
+            <button class="fecharRedefinirSenhaBalconista" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para redefinir a senha de um usuário basta prencher corretamente o que se pede abaixo e clicar em <b>Redefinir Senha</b>.<br/>
+            </p>
+        </p>
+    </div>
+    <div class="clear15"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

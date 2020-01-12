@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Consultar Usuários | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <h1 align="center"> BiblioTec </h1>
+    <div>
+        <h:form>
+            <p:menubar styleClass="menubarBranco">
+                <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"/>
+                <p:submenu label="Controle de Usuarios">
+                    <p:menuitem value="Cadastrar" action="cadastrarUsuarioBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultaUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Alterar" action="editarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Deletar" action="deletarUsuario?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Redefinir Senha" action="redefinirSenhaBalconista?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Controle de Empréstimos">
+                    <p:menuitem value="Cadastrar" action="cadastrarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Consultar" action="consultarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Renovar" action="alterarEmprestimo?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Devolver" action="deletarEmprestimo?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+
+                <p:submenu label="Utilitários">
+                    <p:menuitem value="Consultar Livros" action="consultarAcervoBalconista?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Meus Empréstimos" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                    <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+                </p:submenu>
+                <p:menuitem value="Baixar Multas" action="baixarMultas?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+            </p:menubar>
+        </h:form>
+    </div>
+    <div class="clear15"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <h5>Nome do Usuário, Username, E-Mail ou CPF.<a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                    <div class="ui-grid-col-8">
+                        <p:inputText value="#{usuarioController.user.busca}" class="form-control" required="false"
+                                     maxlength="100" placeholder="Insira o nome do usuário, username, e-mail ou cpf"></p:inputText>
+                    </div>
+                    <div class="ui-grid-col-4 padding40">
+                        <h:commandButton value="Buscar" class="btn btn-block buttonAcervo"
+                                         action="#{usuarioController.realizaConsultaUsuario}"></h:commandButton>
+                    </div>
+                </h:form>
+                <div class="clear15"></div>
+                <div class="clear15"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-grid-col-12">
+        <h:form>
+            <p:dataTable id="tbl" class="tbl" var="usuario"
+                         value="#{usuarioController.realizaConsultaUsuario()}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                         paginator="true" rows="5"
+                         scrollWidth="900"
+                         emptyMessage="Nenhum usuário encontrado.">
+
+                <h:column headerClass="dataTableConfig">
+                    <f:facet name="header">Relação de Usuários</f:facet>
+                </h:column>
+
+                <f:facet name="{Exporters}">
+                    <div style="float:left;width: 32px;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24"
+                                            title="Exportar todas as páginas como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoUsuários"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:left;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="34"
+                                            title="Exportar todas as páginas como planiha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoUsuários"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:right;">
+                        <span>Somente da Página Atual </span>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24" title="Exportar como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoUsuários" pageOnly="true"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="40" title="Exportar como planilha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoUsuários" pageOnly="true"/>
+                        </h:commandLink>
+                    </div>
+                </f:facet>
+
+                <p:column styleClass="dataTableConfig" headerText="Id">
+                    <h:outputText value="#{usuario.codusuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Nome">
+                    <h:outputText value="#{usuario.nome}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Usuário">
+                    <h:outputText value="#{usuario.usuario}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="E-mail">
+                    <h:outputText value="#{usuario.email}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="RG">
+                    <h:outputText value="#{usuario.rg}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="CPF">
+                    <h:outputText value="#{usuario.cpf}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Endereço">
+                    <h:outputText value="#{usuario.endereco}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="CEP">
+                    <h:outputText value="#{usuario.cep}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Cidade">
+                    <h:outputText value="#{usuario.cidade}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="UF">
+                    <h:outputText value="#{usuario.estado}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Cad.">
+                    <h:outputText value="#{usuario.datacad}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Alt.">
+                    <h:outputText value="#{usuario.dataalt}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Nasc.">
+                    <h:outputText value="#{usuario.datanasc}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Permissão">
+                    <h:outputText value="#{usuario.perfil}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Status">
+                    <h:outputText value="#{usuario.status}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+    </div>
+
+    #{usuarioController.user.busca = ''}
+
+    <div id="popup" class="popupConsultaUsuario">
+        <p>Olá,
+            <button class="fechaConsultaUsuario" onclick="fechar()">x</button>
+            <b></b>
+            <p>
+                Para consultar um usuário em nosso sistema, siga os passos abaixo:<br/>
+                1º) Fornecer o nome do usuário desejado;<br/>
+                2º) Após preencher o nome, clique em <b>Buscar</b>.<br/>
+                <font color="red">Obs: Se nenhum nome for preenchido, todos os usuários serão listados.</font>
+            </p>
+        </p>
+    </div>
+    <div class="clear221"></div>
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+</h:body>
+</html>

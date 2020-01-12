@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"></link>
+
+    <title>Alterar Livro | BiblioTec</title>
+
+    <link href="export/images/icone.png" rel="shortcut icon" type="image/x-png"></link>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <script type="text/javascript" src="JS/ajudaPopUp.js"/>
+    <script type="text/javascript" src="JS/confirmacaoPopUp.js"/>
+    <script type="text/javascript" src="JS/validacoesLivro.js"/>
+
+</h:head>
+<h:body styleClass="fundoCinza">
+
+    <h1 align="center"> BiblioTec </h1>
+
+    <h:form>
+        <p:menubar styleClass="menubarBranco">
+            <p:menuitem value="Menu Inicial" action="#{usuarioController.chamaMenuInicial()}"></p:menuitem>
+            <p:submenu label="Controle de Livro">
+                <p:menuitem value="Cadastrar" action="cadastrarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Consultar" action="consultarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Alterar" action="alterarLivro?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Deletar" action="deletarLivro?faces-redirect=true"></p:menuitem>
+            </p:submenu>
+            <p:submenu label="Utilitários">
+                <p:menuitem value="Reservar Livros" action="cadastrarReserva?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Cancelar Reservas" action="cancelarReserva?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Minhas Reservas" action="minhasReservas?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Meus Empréstimo" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+                <p:menuitem value="Dados Cadastrais" action="meusDados?faces-redirect=true"></p:menuitem>
+            </p:submenu>
+            <p:menuitem style="color: #18dcff !important;" rendered="#{emprestimoController.consultaQtdeEmpAtrasados() != 0}" value="Pendências" action="meusEmprestimos?faces-redirect=true"></p:menuitem>
+            <p:menuitem style="color: #18dcff !important;" rendered="#{multaController.totalEmMultas(usuarioController.obterCodUsuario()) > 0}" value="Multas" action="minhasMultas?faces-redirect=true"></p:menuitem>
+        </p:menubar>
+    </h:form>
+    <div class="clear15"></div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="ui-grid-col-12">
+                <h:form>
+                    <h5>Digite um livro, editora ou autor. <a href="javascript: abrir();"><img src="export/images/ajuda.png" alt="error"></img></a></h5>
+                    <div class="ui-grid-col-8">
+                        <p:inputText value="#{livroController.livro.busca}" class="form-control" required="false"
+                                     maxlength="100"
+                                     placeholder="Insira o título, autor ou editora do livro desejado"></p:inputText>
+                    </div>
+                    <div class="ui-grid-col-4 padding40">
+                        <h:commandButton value="Buscar Livro" class="btn btn-block buttonAcervo"
+                                         action="#{livroController.realizarConsultaLivroBibliotecario}"/>
+                    </div>
+                </h:form>
+                <div class="clear15"></div>
+                <div class="clear15"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="ui-grid-col-12">
+        <h:form>
+            <p:dataTable id="tbl" class="dataTableConfig" var="livro"
+                         value="#{livroController.realizarConsultaLivroBibliotecario()}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                         paginator="true" rows="5"
+                         scrollWidth="1300"
+                         emptyMessage="Nenhum livro encontrado.">
+
+                <h:column headerClass="dataTableConfig">
+                    <f:facet name="header">Relação de Livros</f:facet>
+                </h:column>
+
+                <f:facet name="{Exporters}">
+                    <div style="float:left;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24"
+                                            title="Exportar todas as páginas como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoLivros"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:left;">
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="34"
+                                            title="Exportar todas as páginas como planiha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoLivros"/>
+                        </h:commandLink>
+                    </div>
+                    <div style="float:right;">
+                        <span>Somente da Página Atual </span>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/pdf.png" width="24" title="Exportar como PDF"/>
+                            <p:dataExporter type="pdf" target="tbl" fileName="relaçãoLivros" pageOnly="true"/>
+                        </h:commandLink>
+                        <h:commandLink>
+                            <p:graphicImage url="/export/images/xls.png" width="40" title="Exportar como planilha"/>
+                            <p:dataExporter type="xls" target="tbl" fileName="relaçãoLivros" pageOnly="true"/>
+                        </h:commandLink>
+                    </div>
+                </f:facet>
+
+                <p:column styleClass="dataTableConfig" headerText="Id">
+                    <h:outputText value="#{livro.codlivro}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Título">
+                    <h:outputText value="#{livro.titulo}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Autor">
+                    <h:outputText value="#{livro.autor}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Editora">
+                    <h:outputText value="#{livro.editora}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Ano Lanç.">
+                    <h:outputText value="#{livro.anolancamento}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Cidade">
+                    <h:outputText value="#{livro.cidade}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Vol.">
+                    <h:outputText value="#{livro.volume}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Cód. Catal.">
+                    <h:outputText value="#{livro.codcatalogacao}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Num. Chamada">
+                    <h:outputText value="#{livro.numchamada}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Cad.">
+                    <h:outputText value="#{livro.datacad}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Dt. Alt.">
+                    <h:outputText value="#{livro.dataalt}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Status">
+                    <h:outputText value="#{livro.status}"/>
+                </p:column>
+
+                <p:column styleClass="dataTableConfig" headerText="Disp.">
+                    <h:outputText value="#{livro.disponibilidade}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        <div class="clear15"></div>
+        <div class="ui-grid-col-3">
+            <h1></h1>
+        </div>
+        <div class="ui-grid-col-6">
+            <h:outputLabel value="Id do Livro"/><font color="red">*</font>
+            <h:form id="Codlivro">
+
+                <div class="ui-grid-col-7">
+                    <p:inputText value="#{livroController.livro.codlivro}" class="form-control"
+                                 id="codlivro" onmouseover="validaCodLivro(this.value)" required="true" placeholder="Insira o Id do livro"/>
+                </div>
+                <div class="ui-grid-col-1"><h1></h1></div>
+                <div class="ui-grid-col-4">
+                    <h:commandButton value="Editar Livro" class="btn btn-block buttonAcervo"
+                                     rendered="true" action="#{livroController.carregarDadosLivros}"/>
+                </div>
+            </h:form>
+
+            <div class="clear15"></div>
+            <div class="clear15"></div>
+            <h:form id="Livro">
+                <h:outputLabel value="Título"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.titulo}" class="form-control"
+                             maxlength="60" required="true" placeholder="Insira o título do livro"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Autor(a)"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.autor}" class="form-control"
+                             maxlength="60" required="true" placeholder="Insira o nome do autor do livro"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Editora"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.editora}" class="form-control"
+                             maxlength="60" required="true" placeholder="Insira o nome da editora"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Ano lançamento"/><font color="red">*</font>
+                <p:inputMask id="AnoLanc" class="form-control" onchange="validaAnoLanc(this.value)" value="#{livroController.livro.anolancamento}" mask="9999" required="true" placeholder="Insira o ano de lançamento do livro" maxlength="4"/>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Cidade"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.cidade}" class="form-control"
+                             maxlength="60" required="true" placeholder="Insira a cidade"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Volume"/><font color="red">*</font>
+                <p:inputText id="Volume" onchange="validaVolume(this.value)" class="form-control" value="#{livroController.livro.volume}" required="true" placeholder="Insira o volume do livro" maxlength="2"/>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Código Catalogação"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.codcatalogacao}" class="form-control"
+                             maxlength="15" required="true" placeholder="Insira o código de catalogação"></p:inputText>
+                <div class="clear3"></div>
+
+                <h:outputLabel value="Número Chamada"/><font color="red">*</font>
+                <p:inputText value="#{livroController.livro.numchamada}" class="form-control"
+                             maxlength="15" required="true" placeholder="Insira o número de chamado"></p:inputText>
+                <div class="clear3"></div>
+
+                <div class="form-group">
+                    <h:outputText value="Status do Livro"/><font color="red">*</font>
+                    <div align="left" class="form-group">
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:selectOneButton value="#{livroController.livro.ativo}" required="true">
+                                <f:selectItem itemLabel="Ativar" itemValue='1'/>
+                                <f:selectItem itemLabel="Inativar" itemValue='0'/>
+                            </p:selectOneButton>
+                        </h:panelGrid>
+                    </div>
+
+                    <h:outputText value="Torná-lo disponível para empréstimos?"/><font color="red">*</font>
+                    <div align="left" class="form-group">
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:selectOneButton value="#{livroController.livro.disponibilidade}" required="true">
+                                <f:selectItem itemLabel="Sim" itemValue='1'/>
+                                <f:selectItem itemLabel="Não" itemValue='0'/>
+                            </p:selectOneButton>
+                        </h:panelGrid>
+                    </div>
+
+                    <div id="conf" class="conf">
+                        <p align="center">
+                            <h:outputLabel value="Deseja salvar as alterações?"/>
+                        </p>
+                        <h:form>
+                            <div class="form-group">
+                                <h:commandButton value="Sim" class="btn btn-block buttonAcervo"
+                                                 action="#{livroController.realizarEdicaoLivro}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton value="Não" class="btn btn-block buttonAcervo"
+                                                 onclick="fecha()"></h:commandButton>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:commandButton value="Salvar Alterações" class="btn btn-block buttonAcervo"
+                                     rendered="true" onclick="abri()"></h:commandButton>
+                </div>
+            </h:form>
+        </div>
+        <div class="ui-grid-col-3">
+            <h1></h1>
+        </div>
+    </div>
+    <div class="clear255"></div>
+    <div class="clear255"></div>
+    <div class="clear130"></div>
+    <div class="clear100"></div>
+
+    <!--RODAPÉ-->
+    <div class="ui-grid-col-12 fundoPretoCol">
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                <p:graphicImage value="export/images/whatsapp.png"></p:graphicImage>
+                Contato: (44) 99999-9999
+            </h5>
+        </div>
+
+        <div class="ui-grid-col-6">
+            <h5 class="letraBranca text-center">
+                Siga-nos nas redes sociais:
+                <a href="http://www.facebook.com"><p:graphicImage value="export/images/facebook.png"></p:graphicImage></a>
+                <a href="http://www.twitter.com"><p:graphicImage value="export/images/twitter.png"></p:graphicImage></a>
+                <a href="http://www.linkedin.com"><p:graphicImage value="export/images/linkedin.png"></p:graphicImage></a>
+            </h5>
+        </div>
+    </div>
+
+    #{livroController.livro.busca = ''}
+    <div id="popup" class="popupAlterarLivro">
+        <p>Olá,
+            <button class="fecharAlterarLivro" onclick="fechar()">x</button>
+            <b></b><br/>
+            Para alterar os dados do livro, siga os seguintes passos:<br/>
+            1) Use o botão <b>Buscar Livro</b> para filtrar os dados do livro que deseja alterar.<br/>
+            2) <b>Informe o ID</b> do livro e clique em <b> Editar Livro </b>, as informações serão carregadas abaixo.<br/>
+            3) Após realizar as alterações, clique em <b> Salvar Alterações </b> e confirme clicando em <b>Sim</b>.
+        </p>
+    </div>
+</h:body>
+</html>
